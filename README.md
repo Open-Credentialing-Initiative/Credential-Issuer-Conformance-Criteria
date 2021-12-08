@@ -1,4 +1,4 @@
-# Credential Issuer Conformance Criteria
+# Credential Issuer Conformance Criteria TEST
 
 This repository contains a conformance criteria specification for **Credential Issuers**
 
