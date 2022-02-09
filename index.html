@@ -26,7 +26,7 @@
     <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
 
     <title>Credential Issuer Conformance Criteria</title>
-    <h2 id="subtitle">v1.0.0</h2>
+    <h2 id="subtitle">v2.0.0</h2>
 
     <script
       src="https://www.w3.org/Tools/respec/respec-w3c"
@@ -180,10 +180,10 @@
           The name OCI was chosen for the following reasons:
         </p>
         <li>
-          Open – Non-proprietary and interoperable*. OCI is open to all
+          Open – Non-proprietary and interoperable. OCI is open to all
           providers, users, and standards organizations that support adoption of
           the integrated W3C standards and applicable NIST identity proofing
-          standards.
+          standards. The interoperable tooling among service providers is open source.
         </li>
         <li>
           Credentialing – A means of providing a credential (similar to a
@@ -201,10 +201,46 @@
             Open Credentialing Initiative website.
           </a>
         </p>
-        <i>
-          *Content remains under discussion. OCI expects to resolve feedback by
-          Version 2.0 release in December 2021.
-        </i>
+      </section>
+      <section>
+        <h2>Roles in the OCI Ecosystem</h2>
+        <p>
+          A <b>credential</b> is a digital assertion containing a set of claims (e.g., about a state license or FDA Establishment
+          Identifier) made by an entity about itself or another entity. A subset of identity data, credentials are
+          cryptographically signed and can be verified. Credentials can be used to create selective disclosures of information
+          (known as “verifiable presentations”) to limit personal data exposure. The entity described by the claims is called the
+          subject of the credential.
+        </p>
+        <p>
+          A <b>holder</b> can refer to the subject, or to others who hold a credential on behalf of its subject, or to third parties
+          authorized to cache or hold a credential that has been presented to them. The holder may or may not be the subject of
+          the credential. Each supply chain actor has proven to be an Authorized Trading Partner. A Credential Issuer is an entity
+          that creates a credential for use by its intended holder. 
+        </p>
+        <p>
+          A <b>relying party</b> or <b>verifier</b> is generally the entity to whom a verifiable credential is presented (i.e., the party making
+          decisions based on the claims and its degree of trust in the credential). A verifier requests a credential or proof from
+          a holder and verifies it to make a trust decision about the subject entity.
+        </p>
+        <p>
+          A <b>Digital Wallet Provider</b> provides Digital Wallets and services to create enterprise identities (DIDs) for Trading
+          Partners (e.g. Manufacturer, Wholesaler, Dispenser) and Verifiable Credential Issuers. 
+        </p>
+        <p>
+          A <b>VRS service provider</b> provides PI verify routing and saleable return verification requests and responses services. The
+          VRS can act on behalf of the holder (when generating a verifiable presentation) or the verifier (when verifying a
+          verifiable presentation).
+        </p>
+        <p>
+          A <b>Credential Issuer</b> is an entity that issues Verifiable Credentials (VCs). Also known as a Credential Service Provider
+          (CSP). The Credential Issuer is responsible for checking the status of such registrations and licenses prior to issuing
+          VCs to wholesaler  and manufacturer entities.
+        </p>
+        <p>
+          A <b>regulatory body</b> is an entity that establishes a legal requirement for the subject to be registered or licensed in a
+          particular field (i.e., the FDA and States Board of Pharmacy for DSCSA ATP status, and other enforcement agencies as may
+          be applicable).
+        </p>
       </section>
       <section>
         <h2>Regulatory Compliance – Federal Mandates</h2>
@@ -229,11 +265,11 @@
         </p>
       </section>
       <section>
-        <h2>Digital Ecosystems - Identity of Transacting Entities*</h2>
+        <h2>Digital Ecosystems - Identity of Transacting Entities</h2>
         <p>
-          Verifying that a company is “authorized” is enough to meet the letter
+          Verifying that an organization is “authorized” is enough to meet the letter
           of the law; however, in digital ecosystems it is also necessary to
-          establish the <i>identity</i> of the company. Thus, it becomes a two part
+          establish the <i>identity</i> of the organization. Thus, it becomes a two part
           process – is the counterparty who they say they are, and if so, are
           they “authorized”? To add to this challenge, DSCSA transactions for PI
           Verification and TI Tracing move through any number of intermediaries
@@ -242,21 +278,21 @@
           the opportunity for information leaks, transaction replays, and
           tampering with the transaction or credential content throughout the
           ecosystem.
-        </p>
-        <i>
-          *Content remains under discussion. OCI expects to resolve feedback by
-          Version 2.0 release in December 2021.
-        </i>        
+        </p>    
       </section>
       <section>
         <h2>Role of Credential Issuer</h2>
         <p>
-          While gathering information about a company’s
+          While gathering information about an organization
           <a>ATP</a>
           status is relatively simple, ensuring that an
           <a>ATP</a>
           credential is being granted to the right entity, and not to an
-          imposter, is more difficult. By performing thorough and auditable due
+          imposter, is more difficult. ATPs are subject to licensing at either the state or federal level, and the statuses of
+          those licenses are a key gating feature of gaining ATP status. These licenses or registrations have a public component,
+          which is both a benefit and a curse. While establishing that a given ATP exists is a requirement of credential issuance,
+          the greater challenge is to validate an individual's claim to be that ATP's representative. By performing thorough and
+          auditable due
           diligence, a Credential Issuer promotes confidence in a Trading
           Partner’s digital identity prior to the issuance of an
           <a>ATP</a>
@@ -264,20 +300,24 @@
           <a>Root of Trust</a>
           upon which an ATP Credential can be issued.
         </p>
+        <p>
+          In the future, the Root of Trust could be instantiated on a higher level by establishing a body that certifies the
+          Credential Issuers, and then issues verifiable credentials to them. As there are very few Credential Issuers in the
+          initial phase of OCI, such a process is not necessary. OCI uses the DID:web method for the Credential Issuers as this is
+          a method built upon proven, well-known instruments. The initial OCI implementation includes a registry with the names
+          and DIDs of vetted Credential Issuers that have demonstrated and proven adherence with the OCI Credential Issuer
+          Conformance Criteria.
+        </p>
       </section>
       <section>
-        <h2>Purpose of Conformance Criteria*</h2>
+        <h2>Purpose of Conformance Criteria</h2>
         <p>
           The primary purpose of this publication is to communicate Conformance
           Criteria. Conformance Criteria establish the trusted processes that
           are to be followed for an organization to be recognized and accepted
           by OCI as a Credential Issuer. This ensures interoperability among all
           OCI-compliant service providers.
-        </p>
-        <i>
-          *Content remains under discussion. OCI expects to resolve feedback by
-          Version 2.0 release in December 2021.
-        </i>        
+        </p>   
       </section>
       <section>
         <h2>Keywords</h2>
@@ -425,30 +465,92 @@
       </p>
       <section>
         <h2>W3C Standards for Credential Formatting</h2>
-        <p>
-          The World Wide Web Consortium (W3C) is an international community
-          where member organizations, a full-time staff, and the public work
-          together to develop Web standards. One of the many standards put forth
-          by the consortium establishes generally accepted formats for
-          verifiable credentials. The abstract from the W3C website Verifiable
-          Credentials Data Model page states:
-        </p>
-        <i>
-          “Credentials are a part of our daily lives; driver's licenses are used
-          to assert that we are capable of operating a motor vehicle, university
-          degrees can be used to assert our level of education, and
-          government-issued passports enable us to travel between countries.
-          This specification provides a mechanism to express these sorts of
-          credentials on the Web in a way that is cryptographically secure,
-          privacy respecting, and machine-verifiable.”
-        </i>
-        <p>
-          For more information, please visit the
-          <a href="https://www.w3.org/TR/vc-data-model/">
-            Verifiable Credentials page
-          </a>
-          on the W3C website.
-        </p>
+        <section>
+          <h2>About (W3W)</h2>
+          <p>
+            The World Wide Web Consortium (W3C) is an international community
+            where member organizations, a full-time staff, and the public work
+            together to develop Web standards. One of the many standards put forth
+            by the consortium establishes generally accepted formats for
+            verifiable credentials. The abstract from the W3C website Verifiable
+            Credentials Data Model page states:
+          </p>
+          <i>
+            “Credentials are a part of our daily lives; driver's licenses are used
+            to assert that we are capable of operating a motor vehicle, university
+            degrees can be used to assert our level of education, and
+            government-issued passports enable us to travel between countries.
+            This specification provides a mechanism to express these sorts of
+            credentials on the Web in a way that is cryptographically secure,
+            privacy respecting, and machine-verifiable.”
+          </i>
+          <p>
+            For more information, please visit the
+            <a href="https://www.w3.org/TR/vc-data-model/">
+              Verifiable Credentials page
+            </a>
+            on the W3C website.
+          </p>
+        </section>
+        <section>
+          <h2>Credential Structure</h2>
+          <p>
+            Working groups at the W3C author, host, and maintain the W3C Verifiable Credential Data Model 1.0 specification.
+            This W3C VC Standard is now a W3C recommendation (the most mature stage of the W3C standards process). Verifiable
+            credentials (VCs) are issued against identifiers that may be associated with cryptographic operations, be they DIDs,
+            self-certifying identifiers, or legacy identities backed with traditional PKI. The structure of a VC is an important
+            component of interoperability.
+          </p>
+          <p>
+            OCI relies on an implementation of a common standard for the credential structure. Credential Issuers <b>SHALL</b>
+            implement Verifiable Credential Data Model 1.0.
+          </p>
+          <p>
+            At time of writing, there are only early, non-standard and experimental implementations that combine traditional PKI
+            with VCs and DIDs. Therefore Credential Issuers <b>SHALL</b> implement DIDs as cryptographic identifiers. It <b>SHALL</b> be
+            understood that DIDs can be blended with X.509 within the Identity Verification Process in the form of wrapped or
+            nested
+            credentials.
+          </p>
+        </section>
+        <section>
+          <h2>Credential Serialization & Schemas</h2>
+          <p>
+            Credentials that are issued by the Credential Issuer are created in accordance with the W3C JSON-LD format for schema
+            serialization. To ensure processing, validation, and interpretation of verifiable credentials by different implementers,
+            JSON-LD schemas for Identity and ATP credentials are introduced. Credential Issuers <b>SHALL</b> support the JSON-LD format and
+            JSON-LD schema validation.
+          </p>
+          <p>
+            Credential Issuers <b>SHALL</b> have mechanisms in place to support multiple valid versions of credential schemas endorsed and
+            published by OCI. Such a mechanism will allow handling transition periods when new credential schema versions are
+            released and the industry has to adopt changes to schemas. It shall be understood that there can be multiple active
+            schema versions; decommissioned and revised versions can have an expiration date. Decommissioned schema versions <b>SHALL</b>
+            return an error by the ATP credential verification API.
+          </p>
+          <p>
+            The OCI <b>SHALL</b> document and publish a list of approved (active), revised, and decommissioned versions of the Identity and
+            ATP Credential schemas on https://github.com/Open-Credentialing-Initiative. Credential Issuers <b>SHALL</b> follow the schema
+            requirements published by OCI for.
+          </p>
+          <p>
+            Digital Wallet Providers <b>SHALL</b> support the OCI approved credential schema for processing, validation and
+            interpretation that are published on the OCI Github for the Identity Credential and the DSCSA ATP Credential.
+          </p>
+          <h2>Outlook</h2>
+          <p>
+            GS1 maintains a web vocabulary which is designed to extend the work done by schema.org and make use of similar concepts
+            (Product, Offer, Organization), extending them with many more details. As the definitions defined in the vocabulary are
+            already used in attributes of GS1 B2B messages and EPCIS events, OCI is working with GS1 to normalize the definitions of
+            the OCI credential schemas.
+          </p>
+          <p>
+            In the future, OCI may decide to move the credential schemas to a GS1 schema repository (e.g. GS1 web vocabulary on
+            Github). To be consistent with GS1 requirements, OCI might want to introduce further validation instruments such as
+            SHACL. If and when these changes happen, Credential Issuers SHOULD support the GS1 schema repository and the SHACL
+            instruments.
+          </p>
+        </section>
       </section>
       <section>
         <h2>
@@ -566,6 +668,17 @@
             </li>
           </ul>
           <p>
+            Broadly speaking, under OCI all Credential Issuers are required to achieve both a minimum standard of due care as well
+            as perform vigilant checks on revocable events. While technological progress and human ingenuity are difficult to
+            predict, some approaches are clearly inadequate – a chain is only as strong as its weakest link. Self-reporting is
+            clearly inadequate, and excessive gathering of weak evidence creates unnecessary risk for stakeholders.
+          </p>
+          <p>
+            In principle, the evidence to support a credential should be strong (secret information that only a valid applicant
+            would have), verifiable (difficult and risky to falsify), and minimal (the minimum number of secrets to transfer, hold,
+            and verify).
+          </p>
+          <p>
             IAL1, the lowest level of identity proofing, is not appropriate for
             the
             <a>DSCSA</a>
@@ -621,16 +734,16 @@
         </p>
         <ul>
           <li>
-            Existence of the Company;
+            Existence of the Organization;
           </li>
           <li>
-            Identity of the Company;
+            Identity of the Organization;
           </li>
           <li>
-            Identity of the Company’s Representative; and
+            Identity of the Organization’s Representative; and
           </li>
           <li>
-            Authority of the Representative to act on behalf of that Company.
+            Authority of the Representative to act on behalf of that Organization.
           </li>
         </ul>
         <p>
@@ -672,17 +785,15 @@
           </i>
         </ul>
         <p>
-          The above rules apply to both the Company and its Representative.
+          The above rules apply to both the Organization and its Representative.
         </p>
         <p>
           The
           <a>NIST</a>
           standards are written to a broad variety of use cases, and therefore
           do not specify particular evidence needed under the DSCSA use case.
-          The following definition of SUPERIOR evidence is excerpted from
-          Section 5.2.1 of the
-          <a>NIST</a>
-          publication, just to provide an example:
+          Section 5.2.1 of the <a>NIST</a> publication contains helpful information on how to assess the strength of identity evidence.
+          For example, a strength of SUPERIOR requires, among other things, that:
         </p>
         <ul>
           <li>
@@ -692,37 +803,6 @@
               confidence that the source knows the real-life identity of the
               subject. Such procedures are subject to recurring oversight by
               regulatory or publicly accountable institutions.
-            </i>
-          </li>
-          <li>
-            <i>
-              The issuing source visually identified the applicant and performed
-              further checks to confirm the existence of that person.
-            </i>
-          </li>
-          <li>
-            <i>
-              The issuing process for the evidence ensured that it was delivered
-              into the possession of the person to whom it relates.
-            </i>
-          </li>
-          <li>
-            <i>
-              The evidence contains at least one reference number that uniquely
-              identifies the person to whom it relates.
-            </i>
-          </li>
-          <li>
-            <i>
-              The full name on the evidence must be the name that the person was
-              officially known by at the time of issuance. Not permitted are
-              pseudonyms, aliases, an initial for surname, or initials for all
-              given names.
-            </i>
-          </li>
-          <li>
-            <i>
-              The evidence contains a photograph of the person to whom it relates.
             </i>
           </li>
           <li>
@@ -739,20 +819,33 @@
               enable the authenticity of the issuing source to be confirmed.
             </i>
           </li>
+        </ul>
+        <p>A strength of STRONG requires, among other things, that:</p>
+        <ul>
           <li>
-            <i>
-              The evidence includes physical security features that require
-              proprietary knowledge and proprietary technologies to be able to
-              reproduce it.
-            </i>
+            <p>
+              The issuing source of the evidence confirmed the claimed identity through written procedures designed to enable it to
+              form a reasonable belief that it knows the real-life identity of the person. Such procedures are subject to recurring
+              oversight by regulatory or publicly-accountable institutions.
+            </p>
           </li>
           <li>
-            <i>
-              The evidence is unexpired.
-            </i>
+            <p>
+              The issued evidence contains a photograph or biometric template (of any modality) of the person to whom it relates OR
+              the applicant proves possession of an AAL2 authenticator, or equivalent, bound to an IAL2 identity, at a minimum.
+            </p>
+          </li>
+          <li>
+            <p>
+              Where the issued evidence includes digital information, that information is protected using approved cryptographic or
+              proprietary methods, or both, and those methods ensure the integrity of the information and enable the authenticity of
+              the claimed issuing source to be confirmed.
+            </p>
           </li>
         </ul>
         <p>
+          The above bullet points are just a few excerpted examples to illustrate subtle differences between identity strengths.
+          Please consult the NIST publication for a more complete set of guidelines.
           Because the
           <a>NIST</a>
           publication does not delineate particular evidence for the
@@ -768,76 +861,92 @@
         </p>
       </section>
       <section>
-        <h2>Use of DEA Signing Certificate as Superior Evidence</h2>
-        <p>
-          Use of the DEA Signing Certificate alone meets the
-          <a>NIST</a>
-          standard of “One piece of SUPERIOR or STRONG evidence” for Identity
-          Assurance Level 2 (IAL2). The
-          <a>CSP</a>
-          validates the evidence directly with the issuing source through the
-          certificate itself, which is a set of encrypted codes generated by the
-          issuing source, which cannot be modified or replicated by another
-          party. In addition, misrepresentation of a DEA Signing Certificate is
-          a prima facie offense where no further fraud, misrepresentation, or
-          unauthorized access is needed for the authorities to pursue action
-          against an offender. It's one thing to lie to a [=Credential=] Issuer,
-          but it's an entirely different level of risk to steal a DEA number.
-        </p>
-        <p>
-          The DEA Signing Certificate not only validates the existence and
-          identity of the company, but also validates the identity and authority
-          of the representative. It is therefore the quickest and simplest
-          method for complete identity proofing. Nothing from this point on in
-          this Section 3 on Evidence for
-          <a>Identity Proofing</a>
-          is required if the DEA Signing Certificate is used.
-        </p>
-        <p>
-          The DEA reassures registrants that the use of the DEA Signing
-          Certificate is perfectly acceptable for this purpose; it was foreseen
-          and specifically allowed for by the DEA in their policy manual
-          <a href="https://www.deaecom.gov/Ecom_CP.pdf">
-            CSOS Certificate Policy , Version 4.1, January 2015, section 1.4.1
-          </a>
-          Appropriate Certificate Uses:
-        </p>
-        <ul>
-          <li>
-            <i>
-              CSOS Subscriber certificates shall only be issued to entities
-              engaged in the transfer of controlled substances between
-              manufacturers, distributors, retail pharmacies, authorizing
-              institutions and other registrants and must be used for the
-              signing of electronic transaction orders. However, the use of CSOS
-              certificates is not restricted to this single application.
-            </i>
-          </li>
-          <li>
-            <i>
-              CSOS certificates are appropriate for use with other applications
-              requiring a Medium level of assurance or below, as defined by the
-              Federal Bridge Certification Authority (FBCA). This level is
-              relevant to environments where risks and consequences of data
-              compromise are moderate. This may include transactions having
-              substantial monetary value or risk of fraud, or involving access
-              to private information where the likelihood of malicious access is
-              substantial.
-            </i>
-          </li>
-        </ul>
+        <h2>Examples of the Use of One Piece of Strong Evidence</h2>
+        <section>
+          <h2>DEA Signing Certificate</h2>
+          <p>
+            Use of the DEA Signing Certificate alone meets the
+            <a>NIST</a>
+            standard of “One piece of SUPERIOR or STRONG evidence” for Identity
+            Assurance Level 2 (IAL2). The Credential Issuer
+            validates the evidence directly with the issuing source through the
+            certificate itself, which is a set of encrypted codes generated by the
+            issuing source (DEA), which cannot be modified or replicated by another
+            party. In addition, misrepresentation of a DEA Signing Certificate is
+            a prima facie offense where no further fraud, misrepresentation, or
+            unauthorized access is needed for the authorities to pursue action
+            against an offender. It's one thing to lie to a [=Credential=] Issuer,
+            but it's an entirely different level of risk to steal a DEA number.
+          </p>
+          <p>
+            The DEA Signing Certificate not only validates the existence and
+            identity of the organization, but also validates the identity and authority
+            of the representative. It is therefore the quickest and simplest
+            method for complete identity proofing. Nothing from this point on in
+            this Section 4 on Evidence for
+            <a>Identity Proofing</a>
+            is required if the DEA Signing Certificate is used.
+          </p>
+          <p>
+            The DEA reassures registrants that the use of the DEA Signing
+            Certificate is perfectly acceptable for this purpose; it was foreseen
+            and specifically allowed for by the DEA in their policy manual
+            <a href="https://www.deaecom.gov/Ecom_CP.pdf">
+              CSOS Certificate Policy , Version 4.1, January 2015, section 1.4.1
+            </a>
+            Appropriate Certificate Uses:
+          </p>
+          <ul>
+            <li>
+              <i>
+                CSOS Subscriber certificates shall only be issued to entities
+                engaged in the transfer of controlled substances between
+                manufacturers, distributors, retail pharmacies, authorizing
+                institutions and other registrants and must be used for the
+                signing of electronic transaction orders. However, the use of CSOS
+                certificates is not restricted to this single application.
+              </i>
+            </li>
+            <li>
+              <i>
+                CSOS certificates are appropriate for use with other applications
+                requiring a Medium level of assurance or below, as defined by the
+                Federal Bridge Certification Authority (FBCA). This level is
+                relevant to environments where risks and consequences of data
+                compromise are moderate. This may include transactions having
+                substantial monetary value or risk of fraud, or involving access
+                to private information where the likelihood of malicious access is
+                substantial.
+              </i>
+            </li>
+          </ul>          
+        </section>
+        <section>
+          <h2>National Provider Identifier</h2>
+          <p>
+            Use of the NPI registration alone meets the NIST standard of “One piece of SUPERIOR or STRONG evidence” for Identity
+            Assurance Level 2 (IAL2). The Credential Issuer validates the evidence directly with the issuing source (National
+            Council for Prescription Drug Programs (NCPDP)) by retrieving the registration information from the NCPDP database.
+          </p>
+          <p>
+            The NPI registration not only validates the existence and identity of the organization, but also provides evidence
+            toward validation of the identity and the authority of the representative. There is still a need to validate that the
+            applicant representing the organization is the same person that is listed in the NPI registration. This step is covered
+            in Section 4.5.
+          </p>
+        </section>
       </section>
       <section>
-        <h2>Use of Company Documents as Strong or Fair Evidence</h2>
+        <h2>Examples of the Use of Multiple Pieces of Strong or Fair Evidence</h2>
         <p>
-          If a company does not have a DEA Signing Certificate, or chooses not
-          to use it for identity proofing, the alternative is for them to gather
-          and submit documents to the
+          If an organization does not have a singular qualifying superior or strong identify evidence, the alternative is for them
+          to gather
+          and submit offical documents to the
           <a>CSP</a>
-          to prove the existence and identity of the company. In addition, the
-          applicant representing the company must submit documentation to prove
+          to prove the existence and identity of the organization. In addition, the
+          applicant representing the organization must submit documentation to prove
           their individual identity, as well as their authority to act on behalf
-          of the company.
+          of the organization.
         </p>
         <p>
           IMPORTANT NOTE: Simply collecting documents or identification numbers
@@ -847,20 +956,21 @@
         </p>
       </section>
       <section>
-        <h2>Existence and Identity of the Company</h2>
+        <h2>Existence and Identity of the Organization</h2>
         <section>
-          <h2>Company Name</h2>
+          <h2>Organization Name</h2>
           <p>
-            As a first step to analyzing the company documents submitted by the
+            As a first step to analyzing the organization documents submitted by the
             applicant, the
-            <a>CSP</a>
-            <b>SHOULD</b> attempt to locate the company (using the company name given
-            by the applicant) on the Better Business Bureau website (
+            Credential Issuer
+            <b>SHOULD</b> attempt to locate a government-issued license or registration (using the license/registration information given
+            by the applicant) OR a listing for the organization (using the organization name given by the applicant) on the Better
+            Business Bureau website (
             <a href="http://www.bbb.org">www.bbb.org</a>
             ), the
             <a href="http://www.chamberofcommerce.com">chamberofcommerce.com</a>
             website, or the local Chamber of Commerce website where the
-            applicant company resides (found by searching the Internet).
+            applicant organization resides (found by searching the Internet).
           </p>
         </section>
         <section>
@@ -869,25 +979,25 @@
             As specified in
             <a>NIST</a>
             SP800-63A section 4.4.1.6, the
-            <a>CSP</a>
-            <b>SHALL</b> validate the company address. The mailing address and phone
-            number can be considered validated and confirmed by the processes in
-            section 3.4.1 above if the address from one of those websites
+            Credential Issuer
+            <b>SHALL</b> validate the organization's address. The mailing address and phone
+            number <b>MAY</b> be considered validated and confirmed (as address of record) by the processes in
+            section 4.4.1 above if the address from one of those sources
             matches the address on the corporate document(s) submitted by the
-            applicant. If they match, then the phone number from the
-            above-mentioned website(s) can be considered as reliable as the
+            applicant. If they match, then the phone number (if available) from the
+            above-mentioned sources(s) can be considered as reliable as the
             mailing address for communication purposes. The ability to
             communicate with the applicant via phone (as opposed to mailing
             address) can expedite the identity proofing process.
           </p>
           <p>
             If the company name and address of record cannot be verified through
-            one of the websites listed in 3.4.1, then the
-            <a>CSP</a>
+            one of the sources listed in 3.4.1, then the
+            Credential Issuer
             <b>SHALL</b> request from the applicant a copy of a recent (no more than 3
             months old) bank statement, utility bill, industry trade publication
             / letter, or other official piece of business mail that displays the
-            company’s name and address. The mailing address from this document
+            organization’s name and address. The mailing address from this document
             <b>SHALL</b> become the address of record. Note that this process does not
             allow a phone number to be verified as part of the address of
             record; thus, later steps of the due diligence process <b>SHALL</b> be
@@ -896,9 +1006,9 @@
           <p>
             Another way to expedite the communication process is to use a
             verified email address. This can be accomplished if the applicant
-            has an email address within the company’s domain, and the
-            <a>CSP</a>
-            can reasonably ascertain that the domain belongs to the company
+            has an email address within the organization’s domain, and the
+            Credential Issuer
+            can reasonably ascertain that the domain belongs to the organizations
             through one of the following:
           </p>
           <ul>
@@ -907,12 +1017,12 @@
               information can be retrieved and confirmed;
             </li>
             <li>
-              If the Chamber of Commerce website includes the company’s website
+              If the Chamber of Commerce website includes the organization’s website
               address; or
             </li>
             <li>
-              If the applicant provides a link to a page on the company’s
-              website where the displayed company name and address (and phone
+              If the applicant provides a link to a page on the organization’s
+              website where the displayed organization name and address (and phone
               number if present) match the address of record (see above)
               established thus far.
             </li>
@@ -922,7 +1032,7 @@
           <h2>Articles of Incorporation</h2>
           <p>
             A copy of the Articles of Incorporation can be viewed online and
-            downloaded by anyone inside or outside the company; therefore, a
+            downloaded by anyone inside or outside the organization; therefore, a
             copy of the document that looks exactly like the one on the website
             is considered by
             <a>NIST</a>
@@ -934,7 +1044,7 @@
             pages, and the like) from the one on the website would indicate that
             the original document is in the hands of the applicant, and it could
             qualify as STRONG depending on other factors, such as the name and
-            address of the company’s “Registered Agent” on the document.
+            address of the organization’s “Registered Agent” on the document.
           </p>
           <p>
             The [=Credential=] Issuer <b>SHALL</b> go to the Secretary of State’s (or
@@ -958,8 +1068,8 @@
             The original EIN letter (form CP 575) was mailed by the IRS to the
             address specified on the application form SS-4, and is not
             downloadable from a website. Therefore, it would be quite difficult
-            for someone not associated with the company to get a copy of this
-            document. A company can get a replacement (147c letter) by knowing
+            for someone not associated with the organization to get a copy of this
+            document. An organization can get a replacement (147c letter) by knowing
             the EIN, name and address of business, and phone number of business;
             if the contact info has not changed since the original application
             for the EIN, the IRS will mail or fax it to the original contact. If
@@ -979,8 +1089,8 @@
           </p>
           <p>
             A business license or permit, a notice from the IRS, or some
-            official paperwork from a bank where the company opened an account
-            might also have the company’s EIN on it. Such documents could be
+            official paperwork from a bank where the organization opened an account
+            might also have the organization’s EIN on it. Such documents could be
             evaluated for consideration as FAIR evidence for proof of identity
             if the EIN Letter itself cannot be provided.
           </p>
@@ -988,8 +1098,8 @@
         <section>
           <h2>Data Universal Numbering System (DUNS) number</h2>
           <p>
-            The DUNS number can be easily retrieved online for any company by
-            anyone outside the company; therefore, the number itself is
+            The DUNS number can be easily retrieved online for any organization by
+            anyone outside the organization; therefore, the number itself is
             considered by
             <a>NIST</a>
             to be WEAK evidence for proving identity because it does not meet
@@ -999,7 +1109,7 @@
           </p>
           <p>
             However, this number can still be useful as evidence because the
-            address and phone number of the company are associated with the DUNS
+            address and phone number of the organization are associated with the DUNS
             number. The [=Credential=] Issuer can look up the information on
             the:
           </p>
@@ -1029,8 +1139,8 @@
         <section>
           <h2>Global Location Number (GLN)</h2>
           <p>
-            The GLN can be easily retrieved online for any company by anyone
-            outside the company; therefore, the number itself is considered by
+            The GLN can be easily retrieved online for any organization by anyone
+            outside the organization; therefore, the number itself is considered by
             <a>NIST</a>
             to be WEAK evidence for proving identity because it does not meet
             the following criteria: “The issuing process for the evidence means
@@ -1039,12 +1149,12 @@
           </p>
           <p>
             However, this number can still be useful as evidence because the
-            address of the company is associated with the GLN. The
+            address of the organization is associated with the GLN. The
             [=Credential=] Issuer can go to the GS1 website (
             <a href="https://gepir.gs1.org/index.php/search-by-party-name">
               https://gepir.gs1.org/index.php/search-by-party-name
             </a>
-            ) and look up the company name or GLN to ensure that the name and
+            ) and look up the organization name or GLN to ensure that the name and
             address match those on other proofing documents. This would qualify
             as one FAIR piece of evidence.
           </p>
@@ -1052,8 +1162,8 @@
         <section>
           <h2>Legal Entity Identifier (LEI)</h2>
           <p>
-            The LEI can be easily retrieved online for any company by anyone
-            outside the company; therefore, the identifier itself is considered
+            The LEI can be easily retrieved online for any organization by anyone
+            outside the organization; therefore, the identifier itself is considered
             by
             <a>NIST</a>
             to be WEAK evidence for proving identity because it does not meet
@@ -1063,9 +1173,9 @@
           </p>
           <p>
             However, this identifier can still be useful as evidence because the
-            address of the company is associated with the LEI. The
+            address of the organization is associated with the LEI. The
             [=Credential=] Issuer can go to the GLEIF website (search.gleif.org)
-            and look up the company name to ensure that the name and address
+            and look up the organization name to ensure that the name and address
             match those on other proofing documents. This would qualify as one
             FAIR piece of evidence.
           </p>
@@ -1088,9 +1198,9 @@
             Representative’s Identity – Photo ID, Notary, Live Video Appearance
           </h2>
           <p>
-            The applicant, as a Representative of the company, <b>SHALL</b> provide his
-            or her full name, mailing address at the company, email address at
-            the company, phone number at the company, a copy of a
+            The applicant, as a Representative of the organization, <b>SHALL</b> provide his
+            or her full name, mailing address at the organization, email address at
+            the organization, phone number at the organization, a copy of a
             government-issued photo ID, and either:
           </p>
           <ul>
@@ -1205,13 +1315,13 @@
         </ul>
       </section>
       <section>
-        <h2>Check 2: Company Name Comparison</h2>
+        <h2>Check 2: Organization Name Comparison</h2>
         <p>
-          The [=Credential=] Issuer <b>SHALL</b> employ logic to match the company name
-          on the Identity Credential against the company name on the
+          The [=Credential=] Issuer <b>SHALL</b> employ logic to match the organization name
+          on the Identity Credential against the organization name on the
           regulator-issued license or registration record (BOP or FDA) to ensure
-          that the license or registration belongs to that company. If the names
-          do not match, the company’s application for ATP credential <b>SHALL</b> be
+          that the license or registration belongs to that organization. If the names
+          do not match, the organization’s application for ATP credential <b>SHALL</b> be
           further scrutinized to determine if the ATP credential can be issued.
           Subsequent scrutiny and the basis of any decision <b>SHALL</b> be documented
           as part of the audit trail.
@@ -1220,10 +1330,10 @@
       <section>
         <h2>Check 3: Address Comparison</h2>
         <p>
-          A [=Credential=] Issuer <b>SHALL</b> employ logic to match the company
-          address on the Identity Credential against the company name on the
+          A [=Credential=] Issuer <b>SHALL</b> employ logic to match the organization
+          address on the Identity Credential against the organization name on the
           regulator-issued license or registration record (BOP or FDA). If the
-          addresses do not match, the company’s application for ATP credential
+          addresses do not match, the organization’s application for ATP credential
           <b>SHALL</b> be further scrutinized to determine if the ATP credential can be
           issued. Subsequent scrutiny and the basis of any decision <b>SHALL</b> be
           documented as part of the audit trail.
@@ -1255,7 +1365,7 @@
           one month old.
         </p>
         <p>
-          If the License Status is not interpreted to be “Active”, the company’s
+          If the License Status is not interpreted to be “Active”, the organization’s
           application for ATP credential <b>SHALL</b> be further scrutinized to
           determine if the ATP credential can be issued. Subsequent scrutiny and
           the basis of any decision <b>SHALL</b> be documented as part of the audit
@@ -1292,7 +1402,7 @@
             Check 1 - Verify Identity Credential Found,
           </li>
           <li>
-            Check 2 - Company Name Comparison is 100% Match,
+            Check 2 - Organization Name Comparison is 100% Match,
           </li>
           <li>
             Check 4 - Expiration Date is in Future, and
@@ -1307,7 +1417,60 @@
       </section>
     </section>
     <section>
-      <h2>Periodic [=Credential=] Monitoring and Audit Requirements</h2>
+      <h2>Technology Conformance Criteria</h2>
+      <section>
+        <h2>General Requirements</h2>
+        <p>A Credential Issuer <b>SHALL</b>:</p>
+        <ul>
+          <li>
+            Use a digital wallet to enable cross-solution interoperability.
+          </li>
+          <li>
+            Use the DID:web method.
+          </li>
+          <li>
+            Use either the DIDComm Messaging v2 or the vc-http-api method for requesting from or issuing Identity and ATP credentials to a trading partner.
+          </li>
+          <li>
+            Provide an OCI-endorsed revocation mechanism so that relying parties can check the revocation status of a credential. 
+          </li>
+          <li>
+            Generate and store audit trails of all wallet transactions.
+          </li>
+          <li>
+            Implement security measures to protect the integration with the wallet infrastructure. 
+          </li>
+          <li>
+            Use authorization bearer tokens to establish a secure connection between their systems and the wallet.
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Credential Revocation</h2>
+        <p>
+          In the future, OCI can potentially support multiple methods for communicating when a credential has been revoked. At the
+          current stage, OCI supports a proven revocation management method based on LDAP CRLs. Credential Issuers SHALL implement
+          the OCI Directory Service (LDAP) based mechanism for determining if a Verifiable Credential has been revoked
+          (vc-status-2021-ldap). 
+        </p>
+        <ul>
+          <li>
+            The LDAP CRL method provides a time stamping feature for recording the credential revocation event time. This is an
+            important feature that most of the alternative revocation methods do not provide. This feature is important for post
+            transaction audits and investigations.
+          </li>
+          <li>
+            The LDAP approach is less complex to implement than traditional revocation paths, as LDAP is a proven and widespread
+            technology which most potential implementers already have experience with.
+          </li>
+        </ul>
+        <p>
+          Digital Wallet Providers are allowed to implement a caching mechanism for credential revocation data to cache LDAP data
+          for up to 24 hours. Existing cached data can be used to speed up revocation list checking, and can also be used when the
+          OCI Directory Service is not available due to technical / communication issues. Credential revocation data SHALL not be
+          older than 24 hours during normal operations of the OCI Directory Service. 
+        </p>
+      </section>
       <section>
         <h2>Identity Credential Monitoring and Expiration</h2>
         <p>
@@ -1332,23 +1495,23 @@
             Mergers and acquisitions: After a merger / acquisition, the two
             companies may continue to function separately for a period, during
             which there tends to be confusion. An insider could independently
-            establish a new “company” and digital wallet, take the acquired
-            company’s credentials, and operate illegally using the acquired
-            company’s name. This possibility can be avoided by working with the
-            acquired company quickly to revoke the old credentials and issue new
-            ones under the merged company name.
+            establish a new “organization” and digital wallet, take the acquired
+            organization’s credentials, and operate illegally using the acquired
+            organization’s name. This possibility can be avoided by working with the
+            acquired organization quickly to revoke the old credentials and issue new
+            ones under the merged organization name.
           </li>
           <li>
             Name changes: Check for a name change by comparing the name from the
             source of the original due diligence (Section 3.4 Existence and
-            Identity of the Company - 3.4.1 Company Name) with the name on the
+            Identity of the Organization - 4.4.1 Organization Name) with the name on the
             Identity Credential. A name mismatch <b>SHOULD</b> trigger a review for
             possible implications.
           </li>
           <li>
             Address changes: Check for an address change by comparing the
             address from the source of the original due diligence (Section 3.4
-            Existence and Identity of the Company - 3.4.2 Company Address) with
+            Existence and Identity of the Organization - 4.4.2 Organization Address) with
             the address on the Identity Credential. An address mismatch <b>SHOULD</b>
             trigger a review for possible implications.
           </li>
@@ -1361,7 +1524,7 @@
             implications.
           </li>
           <li>
-            Revocation of credentials used by the company to prove identity
+            Revocation of credentials used by the organization to prove identity
             during the original due diligence. For example, if a DEA Signing
             Certificate was originally used as proof of identity, and the DEA
             subsequently revoked the related DEA license, it <b>SHALL</b> trigger a
@@ -1506,6 +1669,27 @@
           actions taken by the [=Credential=] Issuer as part of the monitoring
           process.
         </p>
+      </section>
+    </section>
+    <section>
+      <h2>Organization Controls</h2>
+      <section>
+        <h2>Third Party Audit</h2>
+        <p>
+          This section will contain detailed information about the third party audit requirements once it is decided who the audit
+          company will be and what process will be followed.
+        </p>
+      </section>
+      <section>
+        <h2>Documentation</h2>
+        <p>
+          It is RECOMMENDED that the Credential Issuer offers the following documentation to support any audit/validation
+          process: 
+        </p>
+        <ul>
+          <li>Functional documentation</li>
+          <li>End User documentation</li>
+        </ul>
       </section>
     </section>
   </body>
