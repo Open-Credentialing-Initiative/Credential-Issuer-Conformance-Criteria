@@ -1354,8 +1354,8 @@
       <section>
         <h2>Check 5: License Status Check</h2>
         <p>
-          The [=Credential=] Issuer <b>SHALL</b> check (for wholesalers and dispensers)
-          the BOP-issued license status. (Manufacturers are not subject to this
+          The [=Credential=] Issuer <b>SHALL</b> check (for wholesalers, 3PLs, and dispensers)
+          the BOP-issued license status. Manufacturers and repackagers are not subject to this
           check, as the FDA does not provide a “status” for FDA Establishment
           Identifier (FEI) Registrations.) This check <b>SHALL</b> include querying the
           most recent possible version of the regulatory board’s data source.
@@ -1379,6 +1379,22 @@
           that are subject to interpretation.
         </p>
       </section>
+            <section>
+        <h2>Check 6: Reporting Year Check</h2>
+        <p>
+          The [=Credential=] Issuer <b>SHALL</b> check (for manufacturers and repackagers)
+          the reporting year. Wholesalers, 3PLs, and Dispensers are not subject to this
+          check, as the State-BOP does not provide a “Reporting Year” for state-issued licenses.) This check <b>SHALL</b> include querying the
+          most recent possible version of the FDA's Wholesale Distributor and Third-Party Logistics Providers Reporting data.
+        </p>
+        <p>
+          If the Reporting Year is not interpreted to be “Current” according to the FDA's Annual Reporting Requirements, the organization’s
+          application for ATP credential <b>SHALL</b> be further scrutinized to
+          determine if the ATP credential can be issued. Subsequent scrutiny and
+          the basis of any decision <b>SHALL</b> be documented as part of the audit
+          trail.
+        </p>
+      </section>
       <section>
         <h2>Check Summary</h2>
         <p>
@@ -1386,10 +1402,10 @@
         </p>
         <ol type="a">
           <li>
-            Wholesaler or Dispenser must pass checks 2, 3, 4, and 5.
+            Wholesaler, 3PL, or Dispenser must pass checks 2, 3, 4, and 5.
           </li>
           <li>
-            Manufacturer must pass checks 2, 3, and 4.
+            Manufacturer must pass checks 2, 3, 4, and 6.
           </li>
         </ol>
         <p>
