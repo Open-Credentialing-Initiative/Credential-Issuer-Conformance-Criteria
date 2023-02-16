@@ -224,7 +224,7 @@
         </p>
         <p>
           A <b>Digital Wallet Provider</b> provides Digital Wallets and services to create enterprise identities (DIDs) for Trading
-          Partners (e.g. Manufacturer, Wholesaler, Dispenser, Repackager, and 3PL) and Verifiable Credential Issuers. 
+          Partners (e.g. Manufacturer, Wholesaler, Dispenser) and Verifiable Credential Issuers. 
         </p>
         <p>
           A <b>VRS service provider</b> provides PI verify routing and saleable return verification requests and responses services. The
@@ -234,7 +234,7 @@
         <p>
           A <b>Credential Issuer</b> is an entity that issues Verifiable Credentials (VCs). Also known as a Credential Service Provider
           (CSP). The Credential Issuer is responsible for checking the status of such registrations and licenses prior to issuing
-          VCs to Manufacturer, Repackager, Wholesaler, Dispenser, and 3PL entities.
+          VCs to wholesaler  and manufacturer entities.
         </p>
         <p>
           A <b>regulatory body</b> is an entity that establishes a legal requirement for the subject to be registered or licensed in a
@@ -248,7 +248,7 @@
           The US Drug Supply Chain Security Act (DSCSA) has the objective of
           securing pharmaceutical drug distribution, from manufacturers all the
           way to pharmacies. For patient safety, it is essential to know that
-          only trusted and authorized entities are involved in the manufacturing, repackaging,
+          only trusted and authorized entities are involved in the manufacture,
           distribution, and dispensing of prescription drugs. In addition to
           verification, product tracing, and serialization requirements, each
           supply chain actor must ensure that its Trading Partners are
@@ -256,14 +256,12 @@
         </p>
         <p>
           <a>DSCSA</a> requires that Trading Partners of manufacturers, wholesale
-          distributors, dispensers, repackagers, and third-party logistics providers (3PLs) meet meet the applicable
+          distributors, dispensers, and repackagers meet the applicable
           requirements for being “authorized trading partners” (see sections
           582(b)(3), (c)(3), (d)(3), and (e)(3) of the FD&C Act (21 U.S.C.
-          360eee-1); briefly, “authorized” means registration in accordance with
-          section 510 (manufacturers and repackagers); valid license under State law or section 583, in accordance
-        with section 582(a)(6), and complying with the licensure
-        reporting requirements under section 503(e) (wholesalers and 3PLs); or having a valid license
-          under State law (dispensers).
+          360eee-1); where “authorized” means registration in accordance with
+          section 510 (manufacturers and repackagers), or having a valid license
+          under State law (wholesalers and dispensers).
         </p>
       </section>
       <section>
@@ -355,25 +353,17 @@
           publication:
         </p>
         <ul>
-        <li>
-          <dfn><abbr title="Third-Party Logistics Provider">3PL</abbr></dfn>
-          (Third-Party Logistics Provider): As defined in the statute, "an entity that provides or coordinates
-    warehousing, or other logistics services of a product in interstate
-    commerce on behalf of a manufacturer, wholesale distributor, or
-    dispenser of a product, but does not take ownership of the product,
-    nor have responsibility to direct the sale or disposition of the
-    product."
-        </li>
           <li>
             <dfn><abbr title="Authorized Trading Partner">ATP</abbr></dfn>
             (Authorized Trading Partner): The Drug Supply Chain Security Act
             (DSCSA) restricts access to the distribution system for prescription
-            drug products by requiring that trading partners of manufacturers, repackagers,
-            wholesale distributors, 3PLs, and dispensers meet the
+            drug products by requiring that trading partners of manufacturers,
+            wholesale distributors, dispensers, and repackagers meet the
             applicable requirements for being Authorized Trading Partners.
             <a>DSCSA</a>
             includes definitions for authorized and trading partner with respect
-            to these categories. For example: “To be
+            to manufacturers, repackagers, wholesaler distributors, third-party
+            logistics providers (3PLs), and dispensers. For example: “To be
             considered an authorized trading partner, a wholesale distributor
             must have a valid license under State law or section 583 of the FD&C
             Act, in accordance with section 582(a)(6) of the FD&C Act, comply
@@ -1353,7 +1343,7 @@
         <h2>Check 4: Expiration Date Check</h2>
         <p>
           The [=Credential=] Issuer <b>SHALL</b> check the expiration date on the
-          regulator-issued license to ensure that the license is in good
+          State BOP-issued license (for wholesalers, 3PLs, and dispeners) and expiration on the FDA registration (for manufacturers & repackagers) to ensure that the license/registration is in good
           standing. If the date is in the past or is not found, the company’s
           application for ATP credential <b>SHALL</b> be further scrutinized to
           determine if the ATP credential can be issued. Subsequent scrutiny and
@@ -1362,16 +1352,14 @@
         </p>
       </section>
       <section>
-        <h2>Check 5: License Status Check</h2>
+        <h2>Check 5: License / Registration Status Check</h2>
         <p>
-          The [=Credential=] Issuer <b>SHALL</b> check (for wholesalers and dispensers)
-          the BOP-issued license status. (Manufacturers are not subject to this
-          check, as the FDA does not provide a “status” for FDA Establishment
-          Identifier (FEI) Registrations.) This check <b>SHALL</b> include querying the
+          The [=Credential=] Issuer <b>SHALL</b> check the State BOP-issued license status (for wholesalers, 3PLs, and dispensers)
+          and the FDA registrations status (for manufacturers, repackagers, wholesalers, and 3PLs). This check <b>SHALL</b> include querying the
           most recent possible version of the regulatory board’s data source.
           Some boards refresh their data as frequently as daily, but none
           refreshes their data less frequently than monthly. Therefore, the
-          License Status query <b>SHALL</b> be against BOP data that is no more than
+          License Status query <b>SHALL</b> be against BOP and FDA data that is no more than
           one month old.
         </p>
         <p>
@@ -1389,6 +1377,22 @@
           that are subject to interpretation.
         </p>
       </section>
+            <section>
+        <h2>Check 6: Reporting Year Check</h2>
+        <p>
+          The [=Credential=] Issuer <b>SHALL</b> check (for wholesalers and 3PLs)
+          the reporting year. Manufacturers, repackagers, and dispensers are not subject to this
+          check, as the State-BOPs do not provide a “Reporting Year” for state-issued licenses.) This check <b>SHALL</b> include querying the
+          most recent possible version of the FDA's Wholesale Distributor and Third-Party Logistics Providers Reporting data.
+        </p>
+        <p>
+          If the Reporting Year is not interpreted to be “Current” according to the FDA's Annual Reporting Requirements, the organization’s
+          application for ATP credential <b>SHALL</b> be further scrutinized to
+          determine if the ATP credential can be issued. Subsequent scrutiny and
+          the basis of any decision <b>SHALL</b> be documented as part of the audit
+          trail.
+        </p>
+      </section>
       <section>
         <h2>Check Summary</h2>
         <p>
@@ -1396,10 +1400,10 @@
         </p>
         <ol type="a">
           <li>
-            Wholesaler or Dispenser must pass checks 2, 3, 4, and 5.
+            Wholesaler, 3PL, or Dispenser must pass checks 2, 3, 4, and 5.
           </li>
           <li>
-            Manufacturer must pass checks 2, 3, and 4.
+            Manufacturer and Repackager must pass checks 2, 3, 4, 5, and 6.
           </li>
         </ol>
         <p>
