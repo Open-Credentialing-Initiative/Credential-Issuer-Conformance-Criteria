@@ -26,7 +26,7 @@
     <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
 
     <title>Credential Issuer Conformance Criteria</title>
-    <h2 id="subtitle">v2.1.0</h2>
+    <h2 id="subtitle">v2.0.0</h2>
 
     <script
       src="https://www.w3.org/Tools/respec/respec-w3c"
@@ -37,7 +37,7 @@
       var respecConfig = {
         specStatus: 'base',
         shortName: 'Credential Issuer Conformance Criteria',
-        publishDate: '10 May 2023',
+        publishDate: '4 Feb 2022',
         logos: [],
         lint: {
           'check-punctuation': true,
@@ -122,7 +122,7 @@
   </head>
 
   <body>
-    <p class="copyright">Copyright © 2023 Open Credentialing Initiative.</p>
+    <p class="copyright">Copyright © 2021 Open Credentialing Initiative.</p>
     <section>
       <h2>Status of this Document</h2>
       <p>
@@ -1343,7 +1343,7 @@
         <h2>Check 4: Expiration Date Check</h2>
         <p>
           The [=Credential=] Issuer <b>SHALL</b> check the expiration date on the
-          State BOP-issued license (for wholesalers, 3PLs, and dispeners) and expiration on the FDA registration (for manufacturers & repackagers) to ensure that the license/registration is in good
+          regulator-issued license to ensure that the license is in good
           standing. If the date is in the past or is not found, the company’s
           application for ATP credential <b>SHALL</b> be further scrutinized to
           determine if the ATP credential can be issued. Subsequent scrutiny and
@@ -1352,14 +1352,16 @@
         </p>
       </section>
       <section>
-        <h2>Check 5: License / Registration Status Check</h2>
+        <h2>Check 5: License Status Check</h2>
         <p>
-          The [=Credential=] Issuer <b>SHALL</b> check the State BOP-issued license status (for wholesalers, 3PLs, and dispensers)
-          and the FDA registrations status (for manufacturers, repackagers, wholesalers, and 3PLs). This check <b>SHALL</b> include querying the
+          The [=Credential=] Issuer <b>SHALL</b> check (for wholesalers, 3PLs, and dispensers)
+          the BOP-issued license status. Manufacturers and repackagers are not subject to this
+          check, as the FDA does not provide a “status” for FDA Establishment
+          Identifier (FEI) Registrations.) This check <b>SHALL</b> include querying the
           most recent possible version of the regulatory board’s data source.
           Some boards refresh their data as frequently as daily, but none
           refreshes their data less frequently than monthly. Therefore, the
-          License Status query <b>SHALL</b> be against BOP and FDA data that is no more than
+          License Status query <b>SHALL</b> be against BOP data that is no more than
           one month old.
         </p>
         <p>
@@ -1380,9 +1382,9 @@
             <section>
         <h2>Check 6: Reporting Year Check</h2>
         <p>
-          The [=Credential=] Issuer <b>SHALL</b> check (for wholesalers and 3PLs)
-          the reporting year. Manufacturers, repackagers, and dispensers are not subject to this
-          check, as the State-BOPs do not provide a “Reporting Year” for state-issued licenses.) This check <b>SHALL</b> include querying the
+          The [=Credential=] Issuer <b>SHALL</b> check (for manufacturers and repackagers)
+          the reporting year. Wholesalers, 3PLs, and Dispensers are not subject to this
+          check, as the State-BOP does not provide a “Reporting Year” for state-issued licenses.) This check <b>SHALL</b> include querying the
           most recent possible version of the FDA's Wholesale Distributor and Third-Party Logistics Providers Reporting data.
         </p>
         <p>
@@ -1403,7 +1405,7 @@
             Wholesaler, 3PL, or Dispenser must pass checks 2, 3, 4, and 5.
           </li>
           <li>
-            Manufacturer and Repackager must pass checks 2, 3, 4, 5, and 6.
+            Manufacturer must pass checks 2, 3, 4, and 6.
           </li>
         </ol>
         <p>
