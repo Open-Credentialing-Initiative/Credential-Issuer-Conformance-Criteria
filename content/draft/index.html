@@ -26,7 +26,7 @@
     <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
 
     <title>Credential Issuer Conformance Criteria</title>
-    <h2 id="subtitle">[DRAFT] v2.X.0</h2>
+    <h2 id="subtitle">v2.X.0</h2>
 
     <script
       src="https://www.w3.org/Tools/respec/respec-w3c"
@@ -103,7 +103,7 @@
             key: 'Document Status',
             data: [
               {
-                value: 'Approved',
+                value: 'DRAFT – Please submit feedback to OCI Policy & Architecture Committee',
               },
             ],
           },
@@ -193,8 +193,8 @@
       </li>
       <li><b>Initiative</b> - Indicates that the work is ongoing.</li></ul>
       <p>OCI supports pharmaceutical industry compliance with DSCSA
-        requirements for ATP, as well as allowing for interoperability with Authorities (e.g. federal and state regulators) and ATP Equivalents (i.e. trading partners that are not required to register with the FDA or obtain a State license, such as the Veterans Administration, Department of Defense, etc.). These three groups are referred to as "DSCSA Stakeholders" collectively.
-	<p>Beyond supporting the adoption and standardization of the DSCSA <a>Stakeholder</a> architecture, OCI establishes a structure
+        requirements for ATP, as well as allowing for interoperability with Authorities (e.g. federal and state regulators) and ATP Equivalents (i.e. trading partners that are not required to register with the FDA or obtain a State license, such as the Veterans Administration, Department of Defense, etc.). These three groups are referred to as "[=DSCSA Stakeholder=]s" (or "Stakeholders") collectively.
+	<p>Beyond supporting the adoption and standardization of the DSCSA Stakeholder architecture, OCI establishes a structure
         for running further credential-based pilots and incubation projects.
         Looking to the future, Digital Wallet Providers are encouraged to ensure
         flexibility and customizability to support additional use cases for authorized
@@ -302,7 +302,7 @@
           While gathering information about an organization's
           <a>DSCSA</a>
           status (e.g. <a>ATP</a>, <a>ATP Equivalent</a>, or <a>Authority</a>) is relatively simple, ensuring that a
-          <a>Stakeholder</a>
+          Stakeholder
           credential is being granted to the right entity, and not to an
           imposter, is more difficult. ATPs are subject to licensing at either the state or federal level, and the statuses of
           those licenses are a key gating feature of gaining ATP status. These licenses or registrations have a public component,
@@ -310,7 +310,7 @@
           the greater challenge is to validate an individual's claim to be that Stakeholder's representative. By performing thorough and
           auditable due
           diligence, a Credential Issuer promotes confidence in a Stakeholder’s digital identity prior to the issuance of a
-          <a>Stakeholder</a>
+          Stakeholder
           Credential. The Identity Credential becomes the
           <a>Root of Trust</a>
           upon which a Stakeholder Credential can be issued.
@@ -444,6 +444,11 @@
           counterfeit, stolen, contaminated, or otherwise harmful.
         </li>
         <li>
+          <dfn>
+			DSCSA Stakeholder</dfn><strong>:</strong>
+          The three participant groups for DSCSA interoperability: ATPs, ATP Equivalents, and Authorities. Stakeholders under the OCI specification may obtain Digital Wallets and Credentials in order to engage in DSCSA activities such as verification and tracing.
+        </li>
+        <li>
           <dfn>Identity Proofing</dfn><strong>:</strong> The process by which a
           <a>CSP</a>
           collects, validates, and verifies information about an entity.
@@ -490,12 +495,6 @@
             Issuer is established by OCI, and this due diligence must be
             exercised prior to issuing an Identity Credential.
           </li>
-        <li>
-          <dfn>
-			Stakeholder
-          </dfn><strong>:</strong>
-          The three participant groups for DSCSA interoperability: ATPs, ATP Equivalents, and Authorities. Stakeholders under the OCI specification may obtain Digital Wallets and Credentials in order to engage in DSCSA activities such as verification and tracing.
-        </li>
       </ul>
       </section>
     </section>
@@ -590,7 +589,7 @@
             requirements published by OCI.
           </p>
           <p>
-          Credential Issuers SHALL be capable of issuing Identity Credentials, and of issuing at least one of the three Stakeholder <a>Credential</a> types indicated:
+          Credential Issuers SHALL be capable of issuing at least one of the types of credentials indicated below:
         </p>
         <ul>
           <li>
@@ -748,7 +747,7 @@
             Broadly speaking, under OCI all Credential Issuers are required to achieve both a minimum standard of due care as well
             as perform vigilant checks on revocable events. While technological progress and human ingenuity are difficult to
             predict, some approaches are clearly inadequate – a chain is only as strong as its weakest link. Self-reporting is
-            clearly inadequate, and excessive gathering of weak evidence creates unnecessary risk for stakeholders.
+            clearly inadequate, and excessive gathering of weak evidence creates unnecessary risk for DSCSA Stakeholders.
           </p>
           <p>
             In principle, the evidence to support a credential should be strong (secret information that only a valid applicant
@@ -1346,7 +1345,7 @@
     </section>
 
     <section>
-      <h2>Stakeholder [=Credential=] Due Diligence</h2>
+      <h2>[=DSCSA Stakeholder=] [=Credential=] Due Diligence</h2>
       <p>
         In order to issue a Stakeholder [=Credential=], sufficient evidence <b>SHALL</b> be
         gathered and documented regarding the identity of the Applicant and the
@@ -1661,12 +1660,12 @@
       </section>
       <section>
         <h2>
-          <a>Stakeholder</a>
+          Stakeholder
           [=Credential=] Monitoring and Expiration
         </h2>
         <p>
           A
-          <a>Stakeholder</a>
+          Stakeholder
           [=Credential=] <b>SHALL</b> expire one year from the date it is issued. The
           expiration date indicates when the credential is no longer monitored,
           after which it <b>SHALL</b> be considered invalid. During this one-year term,
@@ -1677,13 +1676,13 @@
       <section>
         <h2>
           Triggers for
-          <a>Stakeholder</a>
+          Stakeholder
           [=Credential=] Revocation/Recertification
         </h2>
         <ul>
           <li>
             On a monthly basis, the
-            <a>Stakeholder</a>
+            Stakeholder
             [=Credential=] Issuer <b>SHALL</b> check for a valid Identity Credential.
             The absence of a valid, unexpired, unrevoked Identity Credential
             <b>SHOULD</b> trigger a review for possible revocation of the
@@ -1731,12 +1730,12 @@
       </section>
       <section>
         <h2>
-          <a>Stakeholder</a>
+          Stakeholder
           [=Credential=] Audit Trail
         </h2>
         <p>
           The [=Credential=] Issuer <b>SHALL</b> keep detailed records of all
-          <a>Stakeholder</a>
+          Stakeholder
           [=Credential=] issuance and monitoring activities for a period of not
           less than six (6) years. These detailed records are considered to be
           an audit trail that can be used in the event an investigation must be
@@ -1744,7 +1743,7 @@
         </p>
         <p>
           For
-          <a>Stakeholder</a>
+          Stakeholder
           [=Credential=] issuance, the audit trail <b>SHALL</b> include capturing all
           Identity Credential attributes, the original source License Data (if applicable), and
           all notes, decisions, and actions taken by the [=Credential=] Issuer
@@ -1752,13 +1751,13 @@
         </p>
         <p>
           For
-          <a>Stakeholder</a>
+          Stakeholder
           [=Credential=] monitoring, the audit trail <b>SHALL</b> include all
           attributes from the valid Identity Credential located in the
           credential owner’s digital wallet; copies or screenshots of the name
           and address from the license or registration (if applicable), and copies or
           screenshots of the associated attributes on the
-          <a>Stakeholder</a>
+          Stakeholder
           [=Credential=]; copies or screenshots of the License Expiration Date
           and License Status from the regulatory body’s source data (if
           applicable); and the current copies of any documents, or screenshots
