@@ -274,11 +274,9 @@
           and licenses prior to issuing VCs to ATPs.
         </p>
         <p>
-          An <b>authority</b> is an entity that establishes a legal requirement for the subject to be registered or
+          An <b>Authority</b> is an entity that establishes a legal requirement for the subject to be registered or
           licensed (i.e., the FDA and States Board of Pharmacy for DSCSA <a>ATP</a> status, and other enforcement
-          agencies as may be applicable). Authorities have a dual role in OCI specifications: they define which companies are ATPs, and have the option to obtain and use Authority Credentials to support their own interoperability requirements.
-        </p>
-		<p>For more information about how these groups make use of credentials, see the OCI Digital Wallet Conformance Criteria.</p> 
+          agencies as may be applicable). Authorities have a dual role in OCI specifications: they define which companies are ATPs, and have the option to obtain and use Authority Credentials to support their own interoperability requirements. </p>For more information about how these groups make use of credentials, see the OCI Digital Wallet Conformance Criteria.</p> 
       </section>
       <section>
         <h2>Digital Ecosystems - Identity of Transacting Entities</h2>
@@ -397,11 +395,11 @@
         </li>
         <li>
           <dfn><abbr title="Authorized Trading Partner Equivalent">ATP Equivalent</abbr></dfn>
-          (Authorized Trading Partner Equivalent): Some trading partners are not required to register with the FDA or obtain a State license (e.g. Veterans Administration, Department of Defense, etc.). OCI has developed a credential schema for these trading partners so that they may leverage credentialing to participate in the electronic, interoperable system mandated by DSCSA. A fuller definition of which entities fall under this stakeholder group may be found in the OCI Credential Issuer Conformance Criteria.
+          (Authorized Trading Partner Equivalent): Some trading partners are not required to register with the FDA or obtain a State license (e.g. Veterans Administration, Department of Defense, etc.). OCI has developed a credential schema for these trading partners so that they may leverage credentialing to participate in the electronic, interoperable system mandated by DSCSA. A fuller definition of which entities fall under this stakeholder group may be found in Section 5 of this document.
         </li>
 		<li>
           <dfn>Authority</dfn><strong>:</strong>
-          Under the Drug Supply Chain Security Act (DSCSA), the Secretary and "other appropriate Federal or State officials” are empowered to perform certain activities such as tracing and verification. OCI has developed a credential schema for these stakeholders so that they may leverage credentialing to participate in the electronic, interoperable system. A fuller definition of which entities fall under this stakeholder group may be found in the OCI Credential Issuer Conformance Criteria.
+          Under the Drug Supply Chain Security Act (DSCSA), the Secretary and "other appropriate Federal or State officials” are empowered to perform certain activities such as tracing and verification. OCI has developed a credential schema for these stakeholders so that they may leverage credentialing to participate in the electronic, interoperable system.  A fuller definition of which entities fall under this stakeholder group may be found in Section 5 of this document. <i>Note that the term "authority" in lower-case letters may also be used to refer to a representative's entitlement to represent a given organization. Where necessary, the term "DSCSA Authority" is used to distinguish the two terms.</i>
         </li>
         <li>
           <dfn>Digital wallet</dfn><strong>:</strong>
@@ -521,7 +519,7 @@
       <section>
         <h2>W3C Standards for Credential Formatting</h2>
         <section>
-          <h2>About (W3C)</h2>
+          <h2>About W3C</h2>
           <p>
             The World Wide Web Consortium (W3C) is an international community
             where member organizations, a full-time staff, and the public work
@@ -589,7 +587,7 @@
             requirements published by OCI.
           </p>
           <p>
-          Credential Issuers SHALL be capable of issuing at least one of the types of credentials indicated below:
+          Credential Issuers <b>SHALL</b> be capable of issuing at least one of the types of credentials indicated below:
         </p>
         <ul>
           <li>
@@ -600,20 +598,20 @@
           <li>
             <a
               href="https://open-credentialing-initiative.github.io/schemas/credentials/DSCSAATPCredential-v1.0.0.jsonld">DSCSA
-              <a>ATP</a> Credential </a>
+              ATP Credential </a>
           </li>
           <li>
             <a
               href="https://open-credentialing-initiative.github.io/schemas/credentials/DSCSAATPEquivalentCredential-v1.0.0.jsonld">DSCSA
-              <a>ATP Equivalent</a> Credential </a>
+              ATP Equivalent Credential </a>
           </li>
           <li>
             <a
               href="https://open-credentialing-initiative.github.io/schemas/credentials/DSCSAAuthorityCredential-v1.0.0.jsonld">DSCSA
-              <a>Authority</a> Credential </a>
+              Authority Credential </a>
           </li>  
         </ul>
-          <h2>Outlook</h2>
+          <h2>Future Outlook</h2>
           <p>
             GS1 maintains a web vocabulary which is designed to extend the work done by schema.org and make use of similar concepts
             (Product, Offer, Organization), extending them with many more details. As the definitions defined in the vocabulary are
@@ -797,7 +795,7 @@
     <section>
       <h2>
         Evidence for
-        <a>Identity proofing</a>
+        <a>Identity Proofing</a>
         based on
         <a>NIST</a>
         IAL2
@@ -932,7 +930,7 @@
           material against the
           <a>DSCSA</a>
           requirements, and researching due diligence processes of other
-          identity proofing use cases pertaining to non-governmental entities. (As such, the examples below do not include examples of evidence that might be provided to demonstrate authority or ATP-equivalent status, as this may vary widely depending on a number of factors). What follows is the result of this
+          identity proofing use cases pertaining to non-governmental entities.(As such, the examples below do not include examples of evidence that might be provided to demonstrate Authority or ATP-equivalent status, as this may vary widely depending on a number of factors). What follows is the result of this
           research and analysis process.
         </p>
       </section>
@@ -1120,7 +1118,7 @@
           </p>
           <p>
             The [=Credential=] Issuer <b>SHALL</b> go to the Secretary of State’s (or
-            other authority’s) website and retrieve the publicly available copy
+            other Authority’s) website and retrieve the publicly available copy
             of the document to compare it with the one submitted by the
             applicant. If the applicant IS also the Registered Agent, then this
             document would qualify as one STRONG piece of evidence even if the
@@ -1341,6 +1339,21 @@
             alphanumeric code.
           </p>
         </section>
+		
+        <section>
+          <h2>
+            <mark>Authority and ATP Equivalent Representative’s Authority</mark>
+          </h2>
+          <p><i><mark>Note that in this section "DSCSA Authority" refers to governmental organizations (e.g. FDA), while "authority" refers to a representative's entitlement to represent a given organization.</i><p>
+            <mark>In the case of an application for a DSCSA Authority or ATP Equivalent credential, the <a>CSP</a>
+              <b>SHALL</b> ascertain the applying Representative’s authority to represent the organization in question. How this requirement is to be fulfilled depends on whether the DSCSA Authority List or DSCSA ATP Equivalent List (as applicable; see Section 5.7) enumerates designated Representative(s) (e.g. a person, group of persons, department, minimum seniority level, etc.) for the organization as a whole:
+			  <ul><li><mark>If the List includes designated Representative(s), the Credential Issuer <b>SHALL</b> determine whether the applying Representative meets the criteria established in the List.
+			  <li><mark>If the List does not include designated Representative(s), the Credential Issuer <b>SHALL</b> leverage public records to determine whether the applying Representative is the organization's highest-ranking official.</li></ul>
+			<p><mark>If either of the two above conditions is met, the applying Representative has passed the authority check.
+			<p><mark>If neither condition is met, the Credential Issuer <b>SHALL</b> obtain authorization documentation through one of two methods:<ul><li><mark>an attestation of delegation from designated Representative(s), where the CSP <b>SHALL</b> validate the identity and authority status of the designated Representative(s) in accordance with the NIST IAL2; or
+			</li><li><mark>documentation published by the organization via a secure authenticated channel that explicitly authorizes the applying Representative to be credentialed (e.g. a public notice on a government website).</li></ul><p><mark>Note that in the first instance if the designated Representative already holds a valid DSCSA Authority or ATP Equivalent credential, it <b>MAY</b> be used as Superior evidence to validate the identity and authority of the designated Representative.</mark></p>
+        </section>
+		
       </section>
     </section>
 
@@ -1447,10 +1460,8 @@
           the simple, straightforward statuses as well as more complex statuses
           that are subject to interpretation.
         </p>
-		<p>For ATP Equivalents, the Credential Issuer <b>SHALL</b> check the most recent version of the ATP-Equivalent Entities list. At time of writing, this list is contained within the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a>.
-		<p>For Authorities, the Credential Issuer <b>SHALL</b> check the most recent version of the DSCSA Authorities list. At time of writing, this list is contained within the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a>.
-</p>
-      </section>
+		</section>
+
             <section>
         <h2>Check 6: Reporting Year Check</h2>
         <p>
@@ -1468,6 +1479,24 @@
         </p>
         </p>	
       </section>
+		<section>
+		<h2><mark>Check 7: Entities List Check</h2>
+		<p><mark>For [=ATP Equivalents=], the Credential Issuer <b>SHALL</b> check the latest ATP-Equivalent Entities list. At time of writing, this list is contained within the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a> (page 35), and as excerpted below comprises:<p>
+		<ul><li><mark>The Veterans Administration,</li>
+<li><mark>The Department of Defense,</li>
+<li><mark>Federal Prisons,</li>
+<li><mark>The Bureau of Indian Affairs,</li>
+<li><mark>Administration for Strategic Preparedness and Response (ASPR)/Strategic National Stockpile, and</li>
+<li><mark>Tribal-operated dispensers.</li></ul>
+		<p><mark>Note that  as ATP Equivalents are by definition not subject to standard DSCSA licensure requirements, the Organization Type in the ATP Equivalent credential is specified by the ATP Equivalent applicant based on the applicant's attestation</i> to the Credential Issuer.</mark></p>
+		<p><mark>For Authorities, the Credential Issuer <b>SHALL</b> check the latest DSCSA Authorities list. At time of writing, this list is contained within the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a> (page 35), and as excerpted below comprises:</mark>
+
+<ul><li><mark>FDA,</li>
+<li><mark>State Licensing Authorities (ex: State Boards of Pharmacy), and</li>
+<li><mark>DEA.</li></ul>
+
+<p><mark>In the future, it is anticipated that these lists will be managed in a separate format.</p>
+      </section>
       <section>
         <h2>Check Summary</h2>
         <p>
@@ -1481,10 +1510,10 @@
             ATP Manufacturer or Repackager must pass checks 2, 3, 4, 5, and 6.
           </li>
           <li>
-            ATP Equivalent must pass checks 2, 3, and 5.
+            ATP Equivalent must pass checks 2, 3, and 7.
           </li>
           <li>
-            Authority must pass checks 2, 3, and 5.
+            Authority must pass checks 2, 3, and 7.
           </li>
         </ol>
         <p>
@@ -1544,7 +1573,7 @@
         <h2>Credential Revocation</h2>
         <p>
           In the future, OCI can potentially support multiple methods for communicating when a credential has been revoked. At the
-          current stage, OCI supports a proven revocation management method based on LDAP CRLs. Credential Issuers SHALL implement
+          current stage, OCI supports a proven revocation management method based on LDAP CRLs. Credential Issuers <b>SHALL</b> implement
           the OCI Directory Service (LDAP) based mechanism for determining if a Verifiable Credential has been revoked
           (vc-status-2021-ldap). 
         </p>
@@ -1562,7 +1591,7 @@
         <p>
           Digital Wallet Providers are allowed to implement a caching mechanism for credential revocation data to cache LDAP data
           for up to 24 hours. Existing cached data can be used to speed up revocation list checking, and can also be used when the
-          OCI Directory Service is not available due to technical / communication issues. Credential revocation data SHALL not be
+          OCI Directory Service is not available due to technical / communication issues. Credential revocation data <b>SHALL</b> not be
           older than 24 hours during normal operations of the OCI Directory Service. 
         </p>
       </section>
