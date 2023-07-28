@@ -26,7 +26,7 @@
     <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
 
     <title>Credential Issuer Conformance Criteria</title>
-    <h2 id="subtitle">v2.1.0</h2>
+    <h2 id="subtitle">v2.2.0</h2>
 
     <script
       src="https://www.w3.org/Tools/respec/respec-w3c"
@@ -37,53 +37,61 @@
       var respecConfig = {
         specStatus: 'base',
         shortName: 'Credential Issuer Conformance Criteria',
-        publishDate: '10 May 2023',
+        publishDate: '28 July 2023',
         logos: [],
         lint: {
           'check-punctuation': true,
           'no-http-props': true,
         },
-        editors: [
-          {
-            name: 'Penny Hendrix',
-            company: 'Legisym',
-            companyURL: 'https://legisym.com/',
-          },
-          {
-            name: 'Brittany Payson',
-            company: 'Legisym',
-            companyURL: 'https://legisym.com/',
-          },
-          {
-           name: 'David Kessler',
-           company: 'Legisym',
-           companyURL: 'https://legisym.com/',
-          },
-          {
-           name: 'Elizabeth Waldorf',
-           company: 'Tracelink',
-           companyURL: 'https://tracelink.com/',
-          },
-          {
-            name: 'Georg Jürgens',
-            company: 'Spherity',
-            companyURL: 'https://spherity.com/',
-          },
-          {
-            name: 'Lauritz Leifermann',
-            company: 'Spherity',
-            companyURL: 'https://spherity.com/',
-          },
-          {
-           name: 'Alex Colgan',
-           company: 'XATP',
-           companyURL: 'https://www.xatp.org/',
-          },
-          {
-          name: 'Thomas Cooper',
-          company: '.med',
-          companyURL: 'https://trust.med/',
-          },
+      editors: [
+        {
+          name: 'Dr. Carsten Stöcker',
+          url: 'https://www.linkedin.com/in/dr-carsten-st%C3%B6cker-1145871/',
+          company: 'Spherity',
+          companyURL: 'https://spherity.com/',
+        },
+        {
+          name: 'Lauritz Leifermann',
+          url: 'https://spherity.com/',
+          company: 'Spherity',
+          companyURL: 'https://spherity.com/',
+        },
+        {
+          name: 'Georg Jürgens',
+          url: 'https://www.linkedin.com/in/georg-j%C3%BCrgens/',
+          company: 'Spherity',
+          companyURL: 'https://spherity.com/',
+        },
+        {
+          name: 'Dr. Christiane Wirrig',
+          url: 'https://www.linkedin.com/in/chriswirrig/',
+          company: 'Spherity',
+          companyURL: 'https://spherity.com/',
+        },
+        {
+          name: 'David Kessler',
+          url: 'https://www.linkedin.com/in/dwkessler/',
+          company: 'Legsiym',
+          companyURL: 'https://legisym.com/',
+        },
+        {
+          name: 'Penny Hendrix',
+          url: 'https://legisym.com/',
+          company: 'Legisym',
+          companyURL: 'https://legisym.com/',
+        },
+        {
+          name: 'Elizabeth Waldorf',
+          url: 'https://www.linkedin.com/in/elizabethwaldorf/',
+          company: 'TraceLink',
+          companyURL: 'https://tracelink.com/',
+        },
+        {
+          name: 'Alex Colgan',
+          url: 'https://www.linkedin.com/in/alexcolgan/',
+          company: 'LedgerDomain',
+          companyURL: 'https://ledgerdomain.com/',
+        },
         ],
         github:
           'https://github.com/Open-Credentialing-Initiative/Credential-Issuer-Conformance-Criteria',
@@ -130,15 +138,15 @@
         publication. Other documents may supersede this document.
       </p>
       <p>
-        This is a living document developed by OCl's Founding Members with input
-        from other OCI Charter Members, DSCSA Trading Partners, Solution
-        Providers, Associations, Standards Bodies and others interested in
-        implementing and contributing to the betterment of the W3C Verifiable
-        Credentials architecture piloted by the DSCSA ATP Pilot. It is
-        anticipated that the contents of this document will be reviewed and
-        updated to address feedback related to compliance, business operations,
-        W3C and GS1 Standards, interoperability, changing legislation,
-        regulations, and policy.
+      This is a living document developed by OCl's Founding Members with input
+      from other OCI Charter Members, DSCSA Trading Partners, Authorities, Solution
+      Providers, Associations, Standards Bodies and others interested in
+      implementing and contributing to the betterment of the W3C Verifiable
+      Credentials architecture piloted by the DSCSA <a>ATP</a> Pilot. It is
+      anticipated that the contents of this document will be reviewed and
+      updated to address feedback related to compliance, business operations,
+      W3C and GS1 Standards, interoperability, changing legislation,
+      regulations, and policy.
       </p>
     </section>
     <section id="abstract">
@@ -165,22 +173,21 @@
       <section>
         <h2>Role of Credential Issuer</h2>
         <p>
-          While gathering information about an organization
-          <a>ATP</a>
-          status is relatively simple, ensuring that an
-          <a>ATP</a>
+          While gathering information about an organization's
+          <a>DSCSA</a>
+          status (e.g. <a>ATP</a>, <a>ATP Equivalent</a>, or <a>Authority</a>) is relatively simple, ensuring that a
+          Stakeholder
           credential is being granted to the right entity, and not to an
           imposter, is more difficult. ATPs are subject to licensing at either the state or federal level, and the statuses of
           those licenses are a key gating feature of gaining ATP status. These licenses or registrations have a public component,
-          which is both a benefit and a curse. While establishing that a given ATP exists is a requirement of credential issuance,
-          the greater challenge is to validate an individual's claim to be that ATP's representative. By performing thorough and
+          which is both a benefit and a curse. While establishing that a given Stakeholder exists is a requirement of credential issuance,
+          the greater challenge is to validate an individual's claim to be that Stakeholder's representative. By performing thorough and
           auditable due
-          diligence, a Credential Issuer promotes confidence in a Trading
-          Partner’s digital identity prior to the issuance of an
-          <a>ATP</a>
+          diligence, a Credential Issuer promotes confidence in a Stakeholder’s digital identity prior to the issuance of a
+          Stakeholder
           Credential. The Identity Credential becomes the
           <a>Root of Trust</a>
-          upon which an ATP Credential can be issued.
+          upon which a Stakeholder Credential can be issued.
         </p>
         <p>
           In the future, the Root of Trust could be instantiated on a higher level by establishing a body that certifies the
@@ -234,72 +241,114 @@
           The following terms and abbreviations appear throughout this
           publication:
         </p>
-        <ul>
-          <li>
-            <dfn><abbr title="Authorized Trading Partner">ATP</abbr></dfn>
-            (Authorized Trading Partner): The Drug Supply Chain Security Act
-            (DSCSA) restricts access to the distribution system for prescription
-            drug products by requiring that trading partners of manufacturers,
-            wholesale distributors, dispensers, and repackagers meet the
-            applicable requirements for being Authorized Trading Partners.
-            <a>DSCSA</a>
-            includes definitions for authorized and trading partner with respect
-            to manufacturers, repackagers, wholesaler distributors, third-party
-            logistics providers (3PLs), and dispensers. For example: “To be
-            considered an authorized trading partner, a wholesale distributor
-            must have a valid license under State law or section 583 of the FD&C
-            Act, in accordance with section 582(a)(6) of the FD&C Act, comply
-            with the licensure reporting requirements in section 503(e) of the
-            FD&C Act, as amended by DSCSA, and accept or transfer direct
-            ownership of a product from or to a manufacturer, repackager,
-            wholesale distributor, or dispenser.”
-          </li>
-          <li>
-            <dfn>Credential</dfn>
-            : A digital assertion containing a set of claims (e.g., about a
-            state license or FDA Establishment Identifier) made by an entity
-            about itself or another entity. Credentials are a subset of identity
-            data. The entity described by the claims is called the subject of
-            the credential.
-          </li>
-          <li>
-            <dfn><abbr title="Credential Service Provider">CSP</abbr></dfn>
-            (Credential Service Provider): An entity that issues verifiable
-            credentials. Also known as a Credential Issuer.
-          </li>
-          <li>
-            <dfn><abbr title="Drug Supply Chain Security Act">DSCSA</abbr></dfn>
-            (Drug Supply Chain Security Act): An act of the U.S. Congress that
-            mandates an electronic, interoperable system to identify and trace
-            certain prescription drugs as they are distributed in the United
-            States. The DSCSA imposes a number of current and emerging
-            requirements on pharmaceutical supply chain stakeholders as part of
-            a mandate to protect consumers from exposure to drugs that may be
-            counterfeit, stolen, contaminated, or otherwise harmful.
-          </li>
-          <li>
-            <dfn><abbr title="Identity Assurance Levels">IAL</abbr></dfn>
-            (Identity Assurance Levels): A category defined by NIST that conveys
-            the degree of confidence that the applicant’s claimed identity is
-            their real identity.
-          </li>
-          <li>
-            <dfn>Identity Proofing</dfn>
-            : The process by which a
-            <a>CSP</a>
-            collects, validates, and verifies information about an entity.
-          </li>
-          <li>
-            <dfn>
-              <abbr title="National Institute of Standards and Technology">
-                NIST
-              </abbr>
-            </dfn>
-            (National Institute of Standards and Technology): An agency that is
-            part of the U.S. Department of Commerce. Congress established the
-            agency in 1901 to build a measurement infrastructure and establish
-            standards for a wide range of products and services.
-          </li>
+      <ul>
+        <li>
+          <dfn><abbr title="Third-Party Logistics Provider">3PL</abbr></dfn>
+          (Third-Party Logistics Provider): As defined in the statute, "an entity that provides or coordinates
+    warehousing, or other logistics services of a product in interstate
+    commerce on behalf of a manufacturer, wholesale distributor, or
+    dispenser of a product, but does not take ownership of the product,
+    nor have responsibility to direct the sale or disposition of the
+    product."
+        </li>
+        <li>
+          <dfn><abbr title="Authorized Trading Partner">ATP</abbr></dfn>
+          (Authorized Trading Partner): The Drug Supply Chain Security Act
+          (DSCSA) restricts access to the distribution system for prescription
+          drug products by requiring that trading partners of manufacturers, repackagers,
+          wholesale distributors, 3PLs, and dispensers meet the
+          applicable requirements for being Authorized Trading Partners.
+          <a>DSCSA</a>
+          includes definitions for authorized and trading partner with respect
+          to these categories. For example: “To be
+          considered an authorized trading partner, a wholesale distributor
+          must have a valid license under State law or section 583 of the FD&C
+          Act, in accordance with section 582(a)(6) of the FD&C Act, comply
+          with the licensure reporting requirements in section 503(e) of the
+          FD&C Act, as amended by DSCSA, and accept or transfer direct
+          ownership of a product from or to a manufacturer, repackager,
+          wholesale distributor, or dispenser.”
+        </li>
+        <li>
+          <dfn><abbr title="Authorized Trading Partner Equivalent">ATP Equivalent</abbr></dfn>
+          (Authorized Trading Partner Equivalent): Some trading partners are not required to register with the FDA or obtain a State license (e.g. Veterans Administration, Department of Defense, etc.). OCI has developed a credential schema for these trading partners so that they may leverage credentialing to participate in the electronic, interoperable system mandated by DSCSA. A fuller definition of which entities fall under this stakeholder group may be found in Section 5 of this document.
+        </li>
+		<li>
+          <dfn>Authority</dfn><strong>:</strong>
+          Under the Drug Supply Chain Security Act (DSCSA), the Secretary and "other appropriate Federal or State officials” are empowered to perform certain activities such as tracing and verification. OCI has developed a credential schema for these stakeholders so that they may leverage credentialing to participate in the electronic, interoperable system.  A fuller definition of which entities fall under this stakeholder group may be found in Section 5 of this document. <i>Note that the term "authority" in lower-case letters may also be used to refer to a representative's entitlement to represent a given organization. Where necessary, the term "DSCSA Authority" is used to distinguish the two terms.</i>
+        </li>
+        <li>
+          <dfn>Digital wallet</dfn><strong>:</strong>
+          A digital wallet which manages the lifecycle, creation and storage of cryptographic key material for a single
+          or multiple users hosted on a secure cloud infrastructure environment. <a>Digital Wallets</a> can be either
+          hosted on
+          a cloud environment or on an edge device.
+        </li>
+        <li>
+          <dfn>Credential</dfn><strong>:</strong>
+          A digital assertion containing a set of claims (e.g., about a
+          state license or FDA Establishment Identifier) made by an entity
+          about itself or another entity. Credentials are a subset of identity
+          data. The entity described by the claims is called the subject of
+          the credential.
+        </li>
+        <li>
+          <dfn><abbr title="Credential Service Provider">CSP</abbr></dfn>
+          (Credential Service Provider): An entity that issues verifiable
+          credentials. Also known as a Credential Issuer.
+        </li>
+        <li>
+          <dfn><abbr title="Decentralized Identifier">DID</abbr></dfn>
+          (Decentralized Identifier): 
+          A type of identifier specified by the World Wide Web Consortium (W3C) that enables verifiable, decentralized
+          digital identity. In contrast to typical, federated identifiers, DIDs can be decoupled from centralized
+          registries, identity providers, and certificate authorities. This takes the form of a Uniform Resource
+          Identifier (URI) that associates a <a>DID</a> subject with a <a>DID</a> document, allowing trustable
+          interactions associated
+          with that subject.
+        </li>
+        <li>
+          <dfn><abbr title="Drug Supply Chain Security Act">DSCSA</abbr></dfn>
+          (Drug Supply Chain Security Act): An act of the U.S. Congress that
+          mandates an electronic, interoperable system to identify and trace
+          certain prescription drugs as they are distributed in the United
+          States. The DSCSA imposes a number of current and emerging
+          requirements on pharmaceutical supply chain stakeholders as part of
+          a mandate to protect consumers from exposure to drugs that may be
+          counterfeit, stolen, contaminated, or otherwise harmful.
+        </li>
+        <li>
+          <dfn>
+			DSCSA Stakeholder</dfn><strong>:</strong>
+          The three participant groups for DSCSA interoperability: ATPs, ATP Equivalents, and Authorities. Stakeholders under the OCI specification may obtain Digital Wallets and Credentials in order to engage in DSCSA activities such as verification and tracing.
+        </li>
+        <li>
+          <dfn>Identity Proofing</dfn><strong>:</strong> The process by which a
+          <a>CSP</a>
+          collects, validates, and verifies information about an entity.
+        </li>
+        <li>
+          <dfn>
+            <abbr title="National Institute of Standards and Technology">
+              NIST
+            </abbr>
+          </dfn>
+          (National Institute of Standards and Technology): An agency that is
+          part of the U.S. Department of Commerce. Congress established the
+          agency in 1901 to build a measurement infrastructure and establish
+          standards for a wide range of products and services.
+        </li>
+		        <li>
+          <dfn><abbr title="Product Identifier">PI</abbr></dfn>
+          (Product Identifier): 
+          DSCSA defines the term “product identifier” as, “a standardized graphic that includes, in both human-readable
+          form and on a machine-readable data carrier that conforms to the standards developed by a widely recognized
+          international standards development organization, the standardized numerical identifier (SNI), lot number, and
+          expiration date of the product.” Per this definition, a DSCSA product identifier comprises the following four
+          data elements: National Drug Code (NDC), Serial Number, Batch or Lot Number, Expiration Date. Product
+          Identifiers are affixed to, or printed on a package or homogeneous case corresponding to the SNI assigned to
+          the product by the manufacturer or the repackager.
+        </li>
           <li>
             <dfn><abbr title="Relying party">RP</abbr></dfn>
             (Relying party): An entity that requests credentials from a
@@ -320,7 +369,7 @@
             Issuer is established by OCI, and this due diligence must be
             exercised prior to issuing an Identity Credential.
           </li>
-        </ul>
+      </ul>
       </section>
     </section>
 
@@ -336,9 +385,7 @@
         <a>DSCSA</a>
         initiatives that were designed, tested, and proven by OCI can begin by
         understanding and embracing the underlying open standards for credential
-        formatting (W3C) and identity proofing (
-        <a>NIST</a>
-        ). While neither is specified by statute or FDA guidance,
+        formatting (W3C) and identity proofing (<a>NIST</a>). While neither is specified by statute or FDA guidance,
         <a>NIST</a>
         is a division of the US Department of Commerce and a trusted FDA
         partner, and W3C is an internationally recognized standards body. These
@@ -348,7 +395,7 @@
       <section>
         <h2>W3C Standards for Credential Formatting</h2>
         <section>
-          <h2>About (W3W)</h2>
+          <h2>About W3C</h2>
           <p>
             The World Wide Web Consortium (W3C) is an international community
             where member organizations, a full-time staff, and the public work
@@ -400,7 +447,7 @@
           <p>
             Credentials that are issued by the Credential Issuer are created in accordance with the W3C JSON-LD format for schema
             serialization. To ensure processing, validation, and interpretation of verifiable credentials by different implementers,
-            JSON-LD schemas for Identity and ATP credentials are introduced. Credential Issuers <b>SHALL</b> support the JSON-LD format and
+            JSON-LD schemas for Identity and Stakeholder credentials are introduced. Credential Issuers <b>SHALL</b> support the JSON-LD format and
             JSON-LD schema validation.
           </p>
           <p>
@@ -408,18 +455,39 @@
             published by OCI. Such a mechanism will allow handling transition periods when new credential schema versions are
             released and the industry has to adopt changes to schemas. It shall be understood that there can be multiple active
             schema versions; decommissioned and revised versions can have an expiration date. Decommissioned schema versions <b>SHALL</b>
-            return an error by the ATP credential verification API.
+            return an error by the Stakeholder credential verification API.
           </p>
           <p>
             The OCI <b>SHALL</b> document and publish a list of approved (active), revised, and decommissioned versions of the Identity and
-            ATP Credential schemas on https://github.com/Open-Credentialing-Initiative. Credential Issuers <b>SHALL</b> follow the schema
-            requirements published by OCI for.
+            Stakeholder Credential schemas on https://github.com/Open-Credentialing-Initiative. Credential Issuers <b>SHALL</b> follow the schema
+            requirements published by OCI.
           </p>
           <p>
-            Digital Wallet Providers <b>SHALL</b> support the OCI approved credential schema for processing, validation and
-            interpretation that are published on the OCI Github for the Identity Credential and the DSCSA ATP Credential.
-          </p>
-          <h2>Outlook</h2>
+          Credential Issuers <b>SHALL</b> be capable of issuing at least one of the types of credentials indicated below:
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://open-credentialing-initiative.github.io/schemas/credentials/IdentityCredential-v1.0.0.jsonld">Identity
+              Credential</a>
+          </li>
+          <li>
+            <a
+              href="https://open-credentialing-initiative.github.io/schemas/credentials/DSCSAATPCredential-v1.0.0.jsonld">DSCSA
+              ATP Credential </a>
+          </li>
+          <li>
+            <a
+              href="https://open-credentialing-initiative.github.io/schemas/credentials/DSCSAATPEquivalentCredential-v1.0.0.jsonld">DSCSA
+              ATP Equivalent Credential </a>
+          </li>
+          <li>
+            <a
+              href="https://open-credentialing-initiative.github.io/schemas/credentials/DSCSAAuthorityCredential-v1.0.0.jsonld">DSCSA
+              Authority Credential </a>
+          </li>  
+        </ul>
+          <h2>Future Outlook</h2>
           <p>
             GS1 maintains a web vocabulary which is designed to extend the work done by schema.org and make use of similar concepts
             (Product, Offer, Organization), extending them with many more details. As the definitions defined in the vocabulary are
@@ -495,7 +563,7 @@
         </section>
         <section>
           <h2>
-            <a>Identity Assurance Levels</a>
+            Identity Assurance Levels
           </h2>
           <p>
             <a>NIST</a>
@@ -553,7 +621,7 @@
             Broadly speaking, under OCI all Credential Issuers are required to achieve both a minimum standard of due care as well
             as perform vigilant checks on revocable events. While technological progress and human ingenuity are difficult to
             predict, some approaches are clearly inadequate – a chain is only as strong as its weakest link. Self-reporting is
-            clearly inadequate, and excessive gathering of weak evidence creates unnecessary risk for stakeholders.
+            clearly inadequate, and excessive gathering of weak evidence creates unnecessary risk for DSCSA Stakeholders.
           </p>
           <p>
             In principle, the evidence to support a credential should be strong (secret information that only a valid applicant
@@ -603,7 +671,7 @@
     <section>
       <h2>
         Evidence for
-        <a>Identity proofing</a>
+        <a>Identity Proofing</a>
         based on
         <a>NIST</a>
         IAL2
@@ -738,7 +806,7 @@
           material against the
           <a>DSCSA</a>
           requirements, and researching due diligence processes of other
-          identity proofing use cases. What follows is the result of this
+          identity proofing use cases pertaining to non-governmental entities.(As such, the examples below do not include examples of evidence that might be provided to demonstrate Authority or ATP-equivalent status, as this may vary widely depending on a number of factors). What follows is the result of this
           research and analysis process.
         </p>
       </section>
@@ -749,8 +817,7 @@
           <p>
             Use of the DEA Signing Certificate alone meets the
             <a>NIST</a>
-            standard of “One piece of SUPERIOR or STRONG evidence” for Identity
-            Assurance Level 2 (IAL2). The Credential Issuer
+            standard of “One piece of SUPERIOR or STRONG evidence” for Identity Assurance Level 2 (IAL2). The Credential Issuer
             validates the evidence directly with the issuing source through the
             certificate itself, which is a set of encrypted codes generated by the
             issuing source (DEA), which cannot be modified or replicated by another
@@ -806,8 +873,7 @@
         <section>
           <h2>National Provider Identifier</h2>
           <p>
-            Use of the NPI registration alone meets the NIST standard of “One piece of SUPERIOR or STRONG evidence” for Identity
-            Assurance Level 2 (IAL2). The Credential Issuer validates the evidence directly with the issuing source (National
+            Use of the NPI registration alone meets the NIST standard of “One piece of SUPERIOR or STRONG evidence” for Identity Assurance Level 2 (IAL2). The Credential Issuer validates the evidence directly with the issuing source (National
             Council for Prescription Drug Programs (NCPDP)) by retrieving the registration information from the NCPDP database.
           </p>
           <p>
@@ -847,16 +913,14 @@
             Credential Issuer
             <b>SHOULD</b> attempt to locate a government-issued license or registration (using the license/registration information given
             by the applicant) OR a listing for the organization (using the organization name given by the applicant) on the Better
-            Business Bureau website (
-            <a href="http://www.bbb.org">www.bbb.org</a>
-            ), the
+            Business Bureau website (<a href="http://www.bbb.org">www.bbb.org</a>), the
             <a href="http://www.chamberofcommerce.com">chamberofcommerce.com</a>
             website, or the local Chamber of Commerce website where the
             applicant organization resides (found by searching the Internet).
           </p>
         </section>
         <section>
-          <h2>Company Address of Record</h2>
+          <h2>Company/Organization Address of Record</h2>
           <p>
             As specified in
             <a>NIST</a>
@@ -873,7 +937,7 @@
             address) can expedite the identity proofing process.
           </p>
           <p>
-            If the company name and address of record cannot be verified through
+            If the company/organization name and address of record cannot be verified through
             one of the sources listed in 3.4.1, then the
             Credential Issuer
             <b>SHALL</b> request from the applicant a copy of a recent (no more than 3
@@ -930,7 +994,7 @@
           </p>
           <p>
             The [=Credential=] Issuer <b>SHALL</b> go to the Secretary of State’s (or
-            other authority’s) website and retrieve the publicly available copy
+            other Authority’s) website and retrieve the publicly available copy
             of the document to compare it with the one submitted by the
             applicant. If the applicant IS also the Registered Agent, then this
             document would qualify as one STRONG piece of evidence even if the
@@ -1151,17 +1215,29 @@
             alphanumeric code.
           </p>
         </section>
+		
+        <section>
+          <h2>
+            	DSCSA Authority and ATP Equivalent Representative’s Authority</mark>
+          </h2>
+          <p><i>Note that in this section "DSCSA Authority" refers to governmental organizations (e.g. FDA), while "authority" refers to a representative's entitlement to represent a given organization.</i><p>
+            In the case of an application for a DSCSA Authority or ATP Equivalent credential, the <a>CSP</a>
+              <b>SHALL</b> ascertain the applying Representative’s authority to represent the organization in question. How this requirement is to be fulfilled depends on whether the DSCSA Authority List or DSCSA ATP Equivalent List (as applicable; see Section 5.7) enumerates designated Representative(s) (e.g. a person, group of persons, department, minimum seniority level, etc.) for the organization as a whole:
+			  <ul><li>If the List includes designated Representative(s), the Credential Issuer <b>SHALL</b> determine whether the applying Representative meets the criteria established in the List.
+			  <li>If the List does not include designated Representative(s), the Credential Issuer <b>SHALL</b> leverage public records to determine whether the applying Representative is either (1) the organization's highest-ranking official or (2) a member of the organization's governing board or committee (e.g. a Board of Pharmacy).</li></ul>
+			<p>If either of the two above conditions is met, the applying Representative has passed the authority check. Note that these requirements only apply to CSPs issuing credentials; access to the Digital Wallet is defined by the Stakeholder organization (i.e. an Authority may wish to allow employees of a department to access wallet functionality).
+        </section>
+		
       </section>
     </section>
 
     <section>
-      <h2>Authorized Trading Partner (ATP) [=Credential=] Due Diligence</h2>
+      <h2>[=DSCSA Stakeholder=] [=Credential=] Due Diligence</h2>
       <p>
-        In order to issue an ATP [=Credential=], sufficient evidence <b>SHALL</b> be
+        In order to issue a Stakeholder [=Credential=], sufficient evidence <b>SHALL</b> be
         gathered and documented regarding the identity of the Applicant and the
-        status of the regulator-issued license (i.e. Board of Pharmacy, BOP) or
-        registration record (FDA). The due diligence process <b>SHALL</b> include five
-        checks:
+        status of the regulator-issued license (i.e. Board of Pharmacy, BOP),
+        registration record (FDA), DSCSA Authority List entry, or DSCSA ATP Equivalent List entry. The due diligence process <b>SHALL</b> include the checks outlined below.<p><i>It should be noted that different Stakeholder types are exempt from some checks; see section 5.7.</i></p>
       </p>
       <section>
         <h2>Check 1: Identity Credential Verification</h2>
@@ -1169,7 +1245,7 @@
           The [=Credential=] Issuer <b>SHALL</b> request a verifiable presentation of
           the Applicant’s Identity Credential. If a valid Identity Credential
           presentation cannot be verified, the [=Credential=] Issuer <b>SHALL NOT</b>
-          proceed with ATP [=Credential=] issuance. A valid Identity Credential
+          proceed with Stakeholder [=Credential=] issuance. A valid Identity Credential
           is one that is issued:
         </p>
         <ul>
@@ -1201,10 +1277,10 @@
         <p>
           The [=Credential=] Issuer <b>SHALL</b> employ logic to match the organization name
           on the Identity Credential against the organization name on the
-          regulator-issued license or registration record (BOP or FDA) to ensure
+          regulator-issued license or registration record (e.g. BOP, FDA) to ensure
           that the license or registration belongs to that organization. If the names
-          do not match, the organization’s application for ATP credential <b>SHALL</b> be
-          further scrutinized to determine if the ATP credential can be issued.
+          do not match, the organization’s application for Stakeholder credential <b>SHALL</b> be
+          further scrutinized to determine if the Stakeholder credential can be issued.
           Subsequent scrutiny and the basis of any decision <b>SHALL</b> be documented
           as part of the audit trail.
         </p>
@@ -1214,9 +1290,9 @@
         <p>
           A [=Credential=] Issuer <b>SHALL</b> employ logic to match the organization
           address on the Identity Credential against the organization name on the
-          regulator-issued license or registration record (BOP or FDA). If the
-          addresses do not match, the organization’s application for ATP credential
-          <b>SHALL</b> be further scrutinized to determine if the ATP credential can be
+          regulator-issued license or registration record (e.g. BOP, FDA). If the
+          addresses do not match, the organization’s application for Stakeholder credential
+          <b>SHALL</b> be further scrutinized to determine if the Stakeholder credential can be
           issued. Subsequent scrutiny and the basis of any decision <b>SHALL</b> be
           documented as part of the audit trail.
         </p>
@@ -1224,8 +1300,8 @@
       <section>
         <h2>Check 4: Expiration Date Check</h2>
         <p>
-          The [=Credential=] Issuer <b>SHALL</b> check the expiration date on the
-          State BOP-issued license (for wholesalers, 3PLs, and dispeners) and expiration on the FDA registration (for manufacturers & repackagers) to ensure that the license/registration is in good
+          For ATPs, the [=Credential=] Issuer <b>SHALL</b> check the expiration date on the
+          State BOP-issued license (for wholesalers, [=3PL=]s, and dispensers) and expiration on the FDA registration (for manufacturers & repackagers) to ensure that the license/registration is in good
           standing. If the date is in the past or is not found, the company’s
           application for ATP credential <b>SHALL</b> be further scrutinized to
           determine if the ATP credential can be issued. Subsequent scrutiny and
@@ -1236,7 +1312,7 @@
       <section>
         <h2>Check 5: License / Registration Status Check</h2>
         <p>
-          The [=Credential=] Issuer <b>SHALL</b> check the State BOP-issued license status (for wholesalers, 3PLs, and dispensers)
+          For ATPs, the [=Credential=] Issuer <b>SHALL</b> check the State BOP-issued license status (for wholesalers, 3PLs, and dispensers)
           and the FDA registrations status (for manufacturers, repackagers, wholesalers, and 3PLs). This check <b>SHALL</b> include querying the
           most recent possible version of the regulatory board’s data source.
           Some boards refresh their data as frequently as daily, but none
@@ -1258,11 +1334,12 @@
           the simple, straightforward statuses as well as more complex statuses
           that are subject to interpretation.
         </p>
-      </section>
+		</section>
+
             <section>
         <h2>Check 6: Reporting Year Check</h2>
         <p>
-          The [=Credential=] Issuer <b>SHALL</b> check (for wholesalers and 3PLs)
+          For ATPs, the [=Credential=] Issuer <b>SHALL</b> check (for wholesalers and 3PLs)
           the reporting year. Manufacturers, repackagers, and dispensers are not subject to this
           check, as the State-BOPs do not provide a “Reporting Year” for state-issued licenses.) This check <b>SHALL</b> include querying the
           most recent possible version of the FDA's Wholesale Distributor and Third-Party Logistics Providers Reporting data.
@@ -1272,20 +1349,45 @@
           application for ATP credential <b>SHALL</b> be further scrutinized to
           determine if the ATP credential can be issued. Subsequent scrutiny and
           the basis of any decision <b>SHALL</b> be documented as part of the audit
-          trail.
+          trail.  
         </p>
+        </p>	
+      </section>
+		<section>
+		<h2>	Check 7: Entities List Check</mark></h2>
+		<p>For [=ATP Equivalents=], the Credential Issuer <b>SHALL</b> check the latest ATP-Equivalent Entities list. At time of writing, this list is contained within the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a> (page 35), and as excerpted below comprises:<p>
+		<ul><li>The Veterans Administration,</li>
+<li>The Department of Defense,</li>
+<li>Federal Prisons,</li>
+<li>The Bureau of Indian Affairs,</li>
+<li>Administration for Strategic Preparedness and Response (ASPR)/Strategic National Stockpile, and</li>
+<li>Tribal-operated dispensers.</li></ul>
+		<p>Note that  as ATP Equivalents are by definition not subject to standard DSCSA licensure requirements, the Organization Type in the ATP Equivalent credential is specified by the ATP Equivalent applicant based on the applicant's attestation</i> to the Credential Issuer.</p>
+		<p>For Authorities, the Credential Issuer <b>SHALL</b> check the latest DSCSA Authorities list. At time of writing, this list is contained within the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a> (page 35), and as excerpted below comprises:
+
+<ul><li>FDA,</li>
+<li>State Licensing Authorities (ex: State Boards of Pharmacy), and</li>
+<li>DEA.</li></ul>
+
+<p>In the future, it is anticipated that these lists will be managed in a separate format.</p>
       </section>
       <section>
         <h2>Check Summary</h2>
         <p>
-          Once passing Check 1, every ATP request for:
+          Once passing Check 1, a Stakeholder must pass the following checks as applicable:
         </p>
         <ol type="a">
           <li>
-            Wholesaler, 3PL, or Dispenser must pass checks 2, 3, 4, and 5.
+            ATP Wholesaler, 3PL, or Dispenser must pass checks 2, 3, 4, and 5.
           </li>
           <li>
-            Manufacturer and Repackager must pass checks 2, 3, 4, 5, and 6.
+            ATP Manufacturer or Repackager must pass checks 2, 3, 4, 5, and 6.
+          </li>
+          <li>
+            ATP Equivalent must pass checks 2, 3, and 7.
+          </li>
+          <li>
+            Authority must pass checks 2, 3, and 7.
           </li>
         </ol>
         <p>
@@ -1345,7 +1447,7 @@
         <h2>Credential Revocation</h2>
         <p>
           In the future, OCI can potentially support multiple methods for communicating when a credential has been revoked. At the
-          current stage, OCI supports a proven revocation management method based on LDAP CRLs. Credential Issuers SHALL implement
+          current stage, OCI supports a proven revocation management method based on LDAP CRLs. Credential Issuers <b>SHALL</b> implement
           the OCI Directory Service (LDAP) based mechanism for determining if a Verifiable Credential has been revoked
           (vc-status-2021-ldap). 
         </p>
@@ -1363,7 +1465,7 @@
         <p>
           Digital Wallet Providers are allowed to implement a caching mechanism for credential revocation data to cache LDAP data
           for up to 24 hours. Existing cached data can be used to speed up revocation list checking, and can also be used when the
-          OCI Directory Service is not available due to technical / communication issues. Credential revocation data SHALL not be
+          OCI Directory Service is not available due to technical / communication issues. Credential revocation data <b>SHALL</b> not be
           older than 24 hours during normal operations of the OCI Directory Service. 
         </p>
       </section>
@@ -1461,12 +1563,12 @@
       </section>
       <section>
         <h2>
-          <a>ATP</a>
+          Stakeholder
           [=Credential=] Monitoring and Expiration
         </h2>
         <p>
-          An
-          <a>ATP</a>
+          A
+          Stakeholder
           [=Credential=] <b>SHALL</b> expire one year from the date it is issued. The
           expiration date indicates when the credential is no longer monitored,
           after which it <b>SHALL</b> be considered invalid. During this one-year term,
@@ -1477,13 +1579,13 @@
       <section>
         <h2>
           Triggers for
-          <a>ATP</a>
+          Stakeholder
           [=Credential=] Revocation/Recertification
         </h2>
         <ul>
           <li>
             On a monthly basis, the
-            <a>ATP</a>
+            Stakeholder
             [=Credential=] Issuer <b>SHALL</b> check for a valid Identity Credential.
             The absence of a valid, unexpired, unrevoked Identity Credential
             <b>SHOULD</b> trigger a review for possible revocation of the
@@ -1491,19 +1593,17 @@
             [=Credential=].
           </li>
           <li>
-            On a monthly basis, the
-            <a>ATP</a>
-            [=Credential=] Issuer <b>SHALL</b> check for a name or address change by
+            On a monthly basis, the Issuer of an <a>ATP</a>
+            [=Credential=] <b>SHALL</b> check for a name or address change by
             comparing the name on the current license or registration with the
             name on the
             <a>ATP</a>
             [=Credential=]. A name or address mismatch <b>SHOULD</b> trigger a review
-            for possible implications.
+            for possible implications. ATP Equivalent and Authority credentials are exempt from this requirement.
           </li>
           <li>
-            On a daily basis, the
-            <a>ATP</a>
-            [=Credential=] Issuer <b>SHALL</b> check License Expiration Date and
+            On a monthly basis, the Issuer of an <a>ATP</a>
+            [=Credential=] <b>SHALL</b> check License Expiration Date and
             License Status. The following situations <b>SHOULD</b> trigger a review for
             implications and possible revocation:
             <ul>
@@ -1523,17 +1623,22 @@
                 </b>
               </li>
             </ul>
-          </li>
+			ATP Equivalent and Authority credentials are not subject to this requirement.
+              </li>
+			</li>
+			<li>On a monthly basis, the Issuer of an <a>ATP Equivalent</a> or <a>Authority</a>
+            [=Credential=] <b>SHALL</b> check the most recent version of the ATP-Equivalent Entities list or DSCSA Authorities list, respectively. In the event that the entity is no longer actively on the list, the prescribed action is that the <strong>Credential Owner work provide an alternate valid list entry within 30 days.</strong> ATP credentials are not subject to this requirement.
+			</li>
         </ul>
       </section>
       <section>
         <h2>
-          <a>ATP</a>
+          Stakeholder
           [=Credential=] Audit Trail
         </h2>
         <p>
           The [=Credential=] Issuer <b>SHALL</b> keep detailed records of all
-          <a>ATP</a>
+          Stakeholder
           [=Credential=] issuance and monitoring activities for a period of not
           less than six (6) years. These detailed records are considered to be
           an audit trail that can be used in the event an investigation must be
@@ -1541,21 +1646,21 @@
         </p>
         <p>
           For
-          <a>ATP</a>
+          Stakeholder
           [=Credential=] issuance, the audit trail <b>SHALL</b> include capturing all
-          Identity Credential attributes, the original source License Data, and
+          Identity Credential attributes, the original source License Data (if applicable), and
           all notes, decisions, and actions taken by the [=Credential=] Issuer
           as part of the approval process.
         </p>
         <p>
           For
-          <a>ATP</a>
+          Stakeholder
           [=Credential=] monitoring, the audit trail <b>SHALL</b> include all
           attributes from the valid Identity Credential located in the
           credential owner’s digital wallet; copies or screenshots of the name
-          and address from the license or registration, and copies or
+          and address from the license or registration (if applicable), and copies or
           screenshots of the associated attributes on the
-          <a>ATP</a>
+          Stakeholder
           [=Credential=]; copies or screenshots of the License Expiration Date
           and License Status from the regulatory body’s source data (if
           applicable); and the current copies of any documents, or screenshots
