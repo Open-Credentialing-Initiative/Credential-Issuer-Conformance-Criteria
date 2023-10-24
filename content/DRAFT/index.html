@@ -188,15 +188,7 @@
           Credential. The Identity Credential becomes the
           <a>Root of Trust</a>
           upon which a Stakeholder Credential can be issued.
-        </p>
-        <p>
-          In the future, the Root of Trust could be instantiated on a higher level by establishing a body that certifies the
-          Credential Issuers, and then issues verifiable credentials to them. As there are very few Credential Issuers in the
-          initial phase of OCI, such a process is not necessary. OCI uses the DID:web method for the Credential Issuers as this is
-          a method built upon proven, well-known instruments. The initial OCI implementation includes a registry with the names
-          and DIDs of vetted Credential Issuers that have demonstrated and proven adherence with the OCI Credential Issuer
-          Conformance Criteria.
-        </p>
+        </p>        
       </section>
       <section>
         <h2>Purpose of Conformance Criteria</h2>
@@ -1413,7 +1405,7 @@
             Use a digital wallet to enable cross-solution interoperability.
           </li>
           <li>
-            Use the DID:web method.
+            Be identifiable by an OCI-endorsed DID in all relevant processes (refer to the Digital Wallet Conformance Criteria for accepted DID methods).
           </li>
           <li>
             Use an OCI-specified issuance process.
