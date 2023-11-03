@@ -26,7 +26,7 @@
     <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
 
     <title>Credential Issuer Conformance Criteria</title>
-    <h2 id="subtitle">v2.2.0</h2>
+    <h2 id="subtitle">v2.3.0</h2>
 
     <script
       src="https://www.w3.org/Tools/respec/respec-w3c"
@@ -37,7 +37,7 @@
       var respecConfig = {
         specStatus: 'base',
         shortName: 'Credential Issuer Conformance Criteria',
-        publishDate: '28 July 2023',
+        publishDate: '03 November 2023',
         logos: [],
         lint: {
           'check-punctuation': true,
@@ -67,6 +67,12 @@
           url: 'https://www.linkedin.com/in/chriswirrig/',
           company: 'Spherity',
           companyURL: 'https://spherity.com/',
+        },
+	{
+          name: 'Brittany Payson',
+          url: 'https://www.linkedin.com/in/brittanygracedesigner/',
+          company: 'Legsiym',
+          companyURL: 'https://legisym.com/',
         },
         {
           name: 'David Kessler',
@@ -1265,25 +1271,33 @@
           Subsequent scrutiny and the basis of any decision <b>SHALL</b> be documented
           as part of the audit trail.
         </p>
+	      <p>In the case of a Virtual Manufacturer, the Credential Issuer <b>SHALL</b> employ logic to match the organization name on the Identity Credential against the organization name on the product labeler code or NDA, ANDA, or BLA for a product to ensure that the registration belongs to that organization. If the names do not match, the organization’s application for Stakeholder credential <b>SHALL</b> be further scrutinized to determine if the Stakeholder credential can be issued. Subsequent scrutiny and the basis of any decision <b>SHALL</b> be documented as part of the audit trail.</p>
       </section>
       <section>
         <h2>Check 3: Address Comparison</h2>
         <p>
           A [=Credential=] Issuer <b>SHALL</b> employ logic to match the organization
-          address on the Identity Credential against the organization name on the
+          address on the Identity Credential against the organization address on the
           regulator-issued license or registration record (e.g. BOP, FDA). If the
           addresses do not match, the organization’s application for Stakeholder credential
           <b>SHALL</b> be further scrutinized to determine if the Stakeholder credential can be
           issued. Subsequent scrutiny and the basis of any decision <b>SHALL</b> be
           documented as part of the audit trail.
         </p>
+	      <p>In the case of a Virtual Manufacturer, a Credential Issuer b>SHALL</b> employ logic to match the organization address on the Identity Credential against the organization address on the product labeler code or NDA, ANDA, or BLA for a product. If the addresses do not match, the organization’s application for Stakeholder credential b>SHALL</b> be further scrutinized to determine if the Stakeholder credential can be issued. Subsequent scrutiny and the basis of any decision SHALL be documented as part of the audit trail.</p>
+      </section>
+	    <section>
+        <h2>Check 4: Contract Manufacturing Organization (CMO) / Co-Licensed Partner (CLP) Relationship Check</h2>
+        <p>
+          For ATPs (virtual manufacturers only), a [=Credential=] Issuer <b>SHALL</b> employ logic to validate the organization on the Identity Credential does use a Contract Manufacturing Organization (CMO) or Co-Licensed Partner (CLP) with valid FDA registration to manufacture at least one product. If either the organization's relationship to the CMO/CLP or the CMO/CLP's FDA registration cannot be validated, the organization’s application for Stakeholder credential <b>SHALL</b> be further scrutinized to determine if the Stakeholder credential can be issued. Subsequent scrutiny and the basis of any decision <b>SHALL</b> be documented as part of the audit trail.
+        </p>
       </section>
       <section>
-        <h2>Check 4: Expiration Date Check</h2>
+        <h2>Check 5: Expiration Date Check</h2>
         <p>
           For ATPs, the [=Credential=] Issuer <b>SHALL</b> check the expiration date on the
-          State BOP-issued license (for wholesalers, [=3PL=]s, and dispensers) and expiration on the FDA registration (for manufacturers & repackagers) to ensure that the license/registration is in good
-          standing. If the date is in the past or is not found, the company’s
+          State BOP-issued license (for wholesalers, [=3PL=]s, and dispensers), expiration on the FDA registration (for manufacturers & repackagers), and the expiration on the FDA registration of the CMO/CLP (for virtual manufacturers) to ensure that the license/registration is in good
+          standing. If the date is in the past or is not found, the organization’s
           application for ATP credential <b>SHALL</b> be further scrutinized to
           determine if the ATP credential can be issued. Subsequent scrutiny and
           the basis of any decision <b>SHALL</b> be documented as part of the audit
@@ -1291,10 +1305,9 @@
         </p>
       </section>
       <section>
-        <h2>Check 5: License / Registration Status Check</h2>
+        <h2>Check 6: License / Registration Status Check</h2>
         <p>
-          For ATPs, the [=Credential=] Issuer <b>SHALL</b> check the State BOP-issued license status (for wholesalers, 3PLs, and dispensers)
-          and the FDA registrations status (for manufacturers, repackagers, wholesalers, and 3PLs). This check <b>SHALL</b> include querying the
+          For ATPs, the [=Credential=] Issuer <b>SHALL</b> check the State BOP-issued license status (for wholesalers, 3PLs, and dispensers), the FDA registration status (for manufacturers, repackagers, wholesalers, and 3PLs), and the FDA registration status of the CMO/CLP (for virtual manufacturers). This check <b>SHALL</b> include querying the
           most recent possible version of the regulatory board’s data source.
           Some boards refresh their data as frequently as daily, but none
           refreshes their data less frequently than monthly. Therefore, the
@@ -1313,16 +1326,16 @@
           regulatory bodies (such as boards of pharmacy, etc.) the state
           regulatory bodies can communicate what is considered “Active” among
           the simple, straightforward statuses as well as more complex statuses
-          that are subject to interpretation.
+          that are subject to interpretation. Refer to <a href="https://dscsagovernance.org/wp-content/uploads/2023/07/PDG-Blueprint-StateaLisensing-Analysis-Table-v1.2.pdf">Partnership for DSCSA Governance’s (PDG) Foundational Blueprint - Appendix B: DSCSA State License Status Analysis V1.2.</a>
         </p>
 		</section>
 
             <section>
-        <h2>Check 6: Reporting Year Check</h2>
+        <h2>Check 7: Reporting Year Check</h2>
         <p>
           For ATPs, the [=Credential=] Issuer <b>SHALL</b> check (for wholesalers and 3PLs)
           the reporting year. Manufacturers, repackagers, and dispensers are not subject to this
-          check, as the State-BOPs do not provide a “Reporting Year” for state-issued licenses.) This check <b>SHALL</b> include querying the
+          check, as the State-BOPs do not provide a “Reporting Year” for state-issued licenses. This check <b>SHALL</b> include querying the
           most recent possible version of the FDA's Wholesale Distributor and Third-Party Logistics Providers Reporting data.
         </p>
         <p>
@@ -1335,7 +1348,7 @@
         </p>	
       </section>
 		<section>
-		<h2>	Check 7: Entities List Check</mark></h2>
+		<h2>	Check 8: Entities List Check</mark></h2>
 		<p>For [=ATP Equivalents=], the Credential Issuer <b>SHALL</b> check the latest ATP-Equivalent Entities list. At time of writing, this list is contained within the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a> (page 35), and as excerpted below comprises:<p>
 		<ul><li>The Veterans Administration,</li>
 <li>The Department of Defense,</li>
@@ -1358,17 +1371,20 @@
           Once passing Check 1, a Stakeholder must pass the following checks as applicable:
         </p>
         <ol type="a">
-          <li>
-            ATP Wholesaler, 3PL, or Dispenser must pass checks 2, 3, 4, and 5.
+	<li>
+            ATP Dispenser must pass checks 2, 3, 5, and 6.
           </li>
           <li>
-            ATP Manufacturer or Repackager must pass checks 2, 3, 4, 5, and 6.
+            ATP Wholesaler or 3PL must pass checks 2, 3, 5, 6, and 7.
           </li>
           <li>
-            ATP Equivalent must pass checks 2, 3, and 7.
+            ATP Manufacturer or Repackager must pass checks 2, 3, 5, and 6. In the case of a Virtual Manufacturer, they must also pass check 4.
           </li>
           <li>
-            Authority must pass checks 2, 3, and 7.
+            ATP Equivalent must pass checks 2, 3, and 8.
+          </li>
+          <li>
+            Authority must pass checks 2, 3, and 8.
           </li>
         </ol>
         <p>
@@ -1384,10 +1400,10 @@
             Check 2 - Organization Name Comparison is 100% Match,
           </li>
           <li>
-            Check 4 - Expiration Date is in Future, and
+            Check 5 - Expiration Date is in Future, and
           </li>
           <li>
-            Check 5 - License Status is Active.
+            Check 6 - License Status is Active.
           </li>
         </ul>
         <p>
