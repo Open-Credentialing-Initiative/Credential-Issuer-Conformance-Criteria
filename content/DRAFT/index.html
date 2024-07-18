@@ -26,7 +26,7 @@
     <meta http-equiv=" Content-Type" content="text/html;charset=utf-8" />
 
     <title>Credential Issuer Conformance Criteria</title>
-    <h2 id="subtitle">v2.3.0</h2>
+    <h2 id="subtitle"><mark>v2.4.0</mark></h2>
 
     <script
       src="https://www.w3.org/Tools/respec/respec-w3c"
@@ -37,7 +37,7 @@
       var respecConfig = {
         specStatus: 'base',
         shortName: 'Credential Issuer Conformance Criteria',
-        publishDate: '03 November 2023',
+        publishDate: '25 July 2024',
         logos: [],
         lint: {
           'check-punctuation': true,
@@ -136,7 +136,7 @@
   </head>
 
   <body>
-    <p class="copyright">Copyright © 2023 Named editors. Contributors to the Open Credentialing Initiative.</p>
+    <p class="copyright">Copyright © 2024 Named editors. Contributors to the Open Credentialing Initiative.</p>
     <section>
       <h2>Status of this Document</h2>
       <p>
@@ -181,7 +181,7 @@
         <p>
           While gathering information about an organization's
           <a>DSCSA</a>
-          status (e.g. <a>ATP</a>, <a>ATP Equivalent</a>, or <a>Authority</a>) is relatively simple, ensuring that a
+          status (e.g. <a>ATP</a>, <a>ATP-Equivalent</a>, or <a>Authority</a>) is relatively simple, ensuring that a
           Stakeholder
           credential is being granted to the right entity, and not to an
           imposter, is more difficult. ATPs are subject to licensing at either the state or federal level, and the statuses of
@@ -268,19 +268,13 @@
           wholesale distributor, or dispenser.”
         </li>
         <li>
-          <dfn><abbr title="Authorized Trading Partner Equivalent">ATP Equivalent</abbr></dfn>
-          (Authorized Trading Partner Equivalent): Some trading partners are not required to register with the FDA or obtain a State license (e.g. Veterans Administration, Department of Defense, etc.). OCI has developed a credential schema for these trading partners so that they may leverage credentialing to participate in the electronic, interoperable system mandated by DSCSA. A fuller definition of which entities fall under this stakeholder group may be found in Section 5 of this document.
-        </li>
-		<li>
-          <dfn>Authority</dfn><strong>:</strong>
-          Under the Drug Supply Chain Security Act (DSCSA), the Secretary and "other appropriate Federal or State officials” are empowered to perform certain activities such as tracing and verification. OCI has developed a credential schema for these stakeholders so that they may leverage credentialing to participate in the electronic, interoperable system.  A fuller definition of which entities fall under this stakeholder group may be found in Section 5 of this document. <i>Note that the term "authority" in lower-case letters may also be used to refer to a representative's entitlement to represent a given organization. Where necessary, the term "DSCSA Authority" is used to distinguish the two terms.</i>
-        </li>
-        <li>
-          <dfn>Digital wallet</dfn><strong>:</strong>
-          A digital wallet which manages the lifecycle, creation and storage of cryptographic key material for a single
-          or multiple users hosted on a secure cloud infrastructure environment. <a>Digital Wallets</a> can be either
-          hosted on
-          a cloud environment or on an edge device.
+          <dfn><abbr title="Authorized Trading Partner Equivalent">ATP-Equivalent</abbr></dfn>
+          (Authorized Trading Partner Equivalent): Some trading partners are not required to register with the FDA or obtain a State license <mark>and, as such, will not be able to qualify for an ATP Credential. The PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design in the subsection "PDG-defined EDDS network, ATP-Equivalent and DSCSA Authority Parties" defines an ATP Equivalent as a ‘trading partner’ (as defined in 581(23)) with an established history of doing business as a trading partner that, often based on principles of intergovernmental immunity,
+		  <ul><li><mark>is not legally required to have a valid registration in accordance with section 510 of the FD&C Act, in the case of a manufacturer or repackager; <strong>and</strong></li>
+			<li><mark>is not legally required to have a valid license under State law or section 583 of the FD&C Act, in accordance with section 582(a)(6) of the FD&C Act, in the case of a wholesale distributor;  <strong>and</strong></li>
+			<li><mark>is not legally required to have a valid license under State law or section 584(a)(1) of the FD&C Act, in the case of a third-party logistics provider;  <strong>and</strong></li> 
+			<li><mark>is not legally required to have a valid license under State law in the case of a dispenser.</strong></li></ul>
+			<mark>OCI has developed a credential schema for these trading partners so that they may leverage credentialing to participate in the electronic, interoperable system mandated by DSCSA.</mark>
         </li>
         <li>
           <dfn>Credential</dfn><strong>:</strong>
@@ -306,6 +300,13 @@
           with that subject.
         </li>
         <li>
+          <dfn>Digital wallet</dfn><strong>:</strong>
+          A digital wallet which manages the lifecycle, creation and storage of cryptographic key material for a single
+          or multiple users hosted on a secure cloud infrastructure environment. <a>Digital Wallets</a> can be either
+          hosted on
+          a cloud environment or on an edge device.
+        </li>
+        <li>
           <dfn><abbr title="Drug Supply Chain Security Act">DSCSA</abbr></dfn>
           (Drug Supply Chain Security Act): An act of the U.S. Congress that
           mandates an electronic, interoperable system to identify and trace
@@ -315,10 +316,14 @@
           a mandate to protect consumers from exposure to drugs that may be
           counterfeit, stolen, contaminated, or otherwise harmful.
         </li>
+		<li>
+          <dfn>DSCSA Authority</dfn><strong>:</strong>
+          <mark>Under the Drug Supply Chain Security Act (DSCSA), the Secretary and "other appropriate Federal or State officials” are empowered to perform PI Verifications and TI Traces. The PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design in the subsection "PDG-defined EDDS network, ATP-Equivalent and DSCSA Authority Parties" defines a DSCSA Authority as a Federal, State, or tribal governmental entity with the legal authority to enforce elements of DSCSA compliance or investigate suspect, illegitimate, or recalled products (as defined in the DSCSA). This includes Federal and State governmental entities that license trading partners under the DSCSA. OCI has developed a credential schema for these stakeholders so that they may leverage credentialing to participate in the electronic, interoperable system. <i>Note that the term "authority" in lower-case letters may also be used to refer to a representative's entitlement to represent a given organization. Where necessary, the term "DSCSA Authority" is used to distinguish the two terms.</i></mark>
+        </li>
         <li>
           <dfn>
 			DSCSA Stakeholder</dfn><strong>:</strong>
-          The three participant groups for DSCSA interoperability: ATPs, ATP Equivalents, and Authorities. Stakeholders under the OCI specification may obtain Digital Wallets and Credentials in order to engage in DSCSA activities such as verification and tracing.
+          The three participant groups for DSCSA interoperability: ATPs, ATP-Equivalents, and Authorities. Stakeholders under the OCI specification may obtain Digital Wallets and Credentials in order to engage in DSCSA activities such as verification and tracing.
         </li>
         <li>
           <dfn>Identity Proofing</dfn><strong>:</strong> The process by which a
@@ -466,7 +471,7 @@
           <li>
             <a
               href="https://open-credentialing-initiative.github.io/schemas/credentials/DSCSAATPEquivalentCredential-v1.0.0.jsonld">DSCSA
-              ATP Equivalent Credential </a>
+              ATP-Equivalent Credential </a>
           </li>
           <li>
             <a
@@ -1205,10 +1210,10 @@
 		
         <section>
           <h2>
-            	DSCSA Authority and ATP Equivalent Representative’s Authority</mark>
+            	DSCSA Authority and ATP-Equivalent Representative’s Authority</mark>
           </h2>
-          <p><i>Note that in this section "DSCSA Authority" refers to governmental organizations (e.g. FDA), while "authority" refers to a representative's entitlement to represent a given organization.</i><p>
-            In the case of an application for a DSCSA Authority or ATP Equivalent credential, the <a>CSP</a>
+          <p><i>Note that in this section "[=DSCSA Authority=]" refers to governmental organizations (e.g. FDA), while "authority" refers to a representative's entitlement to represent a given organization.</i><p>
+            In the case of an application for a DSCSA Authority or ATP-Equivalent credential, the <a>CSP</a>
               <b>SHALL</b> ascertain the applying Representative’s authority to represent the organization in question. The Credential Issuer <b>SHALL</b> leverage public records to determine whether the applying Representative is either (1) the organization's highest-ranking official or (2) a member of the organization's governing board or committee (e.g. a Board of Pharmacy).</li></ul>
 			<p>If this condition is met, the applying Representative has passed the authority check. Note that these requirements only apply to CSPs issuing credentials; access to the Digital Wallet is defined by the Stakeholder organization (i.e. an Authority may wish to allow employees of a department to access wallet functionality).
         </section>
@@ -1221,8 +1226,8 @@
       <p>
         In order to issue a Stakeholder [=Credential=], sufficient evidence <b>SHALL</b> be
         gathered and documented regarding the identity of the Applicant and the
-        status of the regulator-issued license (i.e. Board of Pharmacy<s><mark>, BOP</s></mark>),
-        registration record (FDA), DSCSA Authority applicability, or DSCSA ATP Equivalent applicability. The due diligence process <b>SHALL</b> include the checks outlined below.<p><i>It should be noted that different Stakeholder types are exempt from some checks; see section 5.7.</i></p>
+        status of the regulator-issued license (i.e. Board of Pharmacy),
+        registration record (FDA), meeting the DSCSA Authority definition, or meeting the DSCSA ATP-Equivalent definition. The due diligence process <b>SHALL</b> include the checks outlined below.<p><i>It should be noted that different Stakeholder types are exempt from some checks; see section 5.7.</i></p>
       </p>
       <section>
         <h2>Check 1: Identity Credential Verification</h2>
@@ -1347,11 +1352,19 @@
       </section>
 		<section>
 		<h2>	Check 8: Authority & ATP-Equivalent Status Check</mark></h2>
-		<p><mark>For [=ATP Equivalents=], the Credential Issuer <b>SHALL</b> check the latest ATP-Equivalent Entities example list. At time of writing, this list is contained within the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a> in the subsection "PDG-defined EDDS network, ATP-Equivalent and DSCSA Authority Parties / ATP-Equivalent Entities".</mark><p>
-		<p><mark>In the event that the organization does not appear in the PDG example list, the Credential Issuer <b>SHALL</b> determine whether the organization meets the definition of an ATP Equivalent as defined in the PDG Blueprint.</mark> Note that as ATP Equivalents are by definition not subject to standard DSCSA licensure requirements, the Organization Type in the ATP Equivalent credential is specified by the ATP Equivalent applicant based on the applicant's attestation</i> to the Credential Issuer.</p>
-		<p>For Authorities, the Credential Issuer <b>SHALL</b> check the latest DSCSA Authorities example list. At time of writing, this list is contained within the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a> in the subsection "PDG-defined EDDS network, ATP-Equivalent and DSCSA Authority Parties / DSCSA Authorities".
+		<p><mark>For [=ATP-Equivalents=], the Credential Issuer <b>SHALL</b> determine whether the organization meets the definition of an ATP-Equivalent as defined in the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a> in the subsection "PDG-defined EDDS network, ATP-Equivalent and DSCSA Authority Parties:</mark><p>
+		<ul><li>An ATP-Equivalent is a ‘trading partner’ (as defined in 581(23)) with an established history of doing business as a trading partner that, often based on principles of intergovernmental immunity,</li>
+<ul><li>is not legally required to have a valid registration in accordance with section 510 of the FD&C Act, in the case of a manufacturer or repackager; and</li>
+<li>is not legally required to have a valid license under State law or section 583 of the FD&C Act, in accordance with section 582(a)(6) of the FD&C Act, in the case of a wholesale distributor; and</li>
+<li>is not legally required to have a valid license under State law or section 584(a)(1) of the FD&C Act, in the case of a third-party logistics provider; and </li>
+<li>is not legally required to have a valid license under State law in the case of a dispenser.</li></ul></ul>
 
-<p><mark>In the event that the Authority does not appear in the PDG example list, the Credential Issuer <b>SHALL</b> determine whether the organization meets the definition of a DSCSA Authority as defined in the PDG Blueprint. The Credential Issuer <b>MAY</b> make use of the FDA website to identify state licensing agencies, such as the <a href="https://www.fda.gov/drugs/drug-supply-chain-integrity/check-licensure-wholesale-drug-distributors-and-third-party-logistics-providers">list of U.S. state agencies responsible for licensing wholesale prescription drug distributors.</mark></a></p>
+		
+		<p><mark>Note that as ATP-Equivalents are by definition not subject to standard DSCSA licensure requirements, the Organization Type in the ATP-Equivalent credential is specified by the ATP-Equivalent applicant based on the applicant's attestation</i> to the Credential Issuer.</p>
+		<p>For DSCSA Authorities, the Credential Issuer <b>SHALL</b> determine whether the organization meets the definition of a DSCSA Authority as defined in the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a> in the subsection "PDG-defined EDDS network, ATP-Equivalent and DSCSA Authority Parties / DSCSA Authorities":
+
+<ul><li>A DSCSA Authority is a Federal, State, or tribal governmental entity with the legal authority to enforce elements of DSCSA compliance or investigate suspect, illegitimate, or recalled products (as defined in the DSCSA). This includes Federal and State governmental entities that license trading partners under the DSCSA.</li></ul>
+
       </section>
       <section>
         <h2>Check Summary</h2>
@@ -1369,7 +1382,7 @@
             ATP Manufacturer or Repackager must pass checks 2, 3, 5, and 6. In the case of a Virtual Manufacturer, they must also pass check 4.
           </li>
           <li>
-            ATP Equivalent must pass checks 2, 3, and 8.
+            ATP-Equivalent must pass checks 2, 3, and 8.
           </li>
           <li>
             Authority must pass checks 2, 3, and 8.
@@ -1554,9 +1567,7 @@
       </section>
       <section>
         <h2>
-          Triggers for
-          Stakeholder
-          [=Credential=] Revocation/Recertification
+          Triggers for Stakeholder [=Credential=] Revocation/Recertification
         </h2>
         <ul>
           <li>
@@ -1575,7 +1586,7 @@
             name on the
             <a>ATP</a>
             [=Credential=]. A name or address mismatch <b>SHOULD</b> trigger a review
-            for possible implications. ATP Equivalent and Authority credentials are exempt from this requirement.
+            for possible implications. ATP-Equivalent and Authority credentials are exempt from this requirement.
           </li>
           <li>
             On a monthly basis, the Issuer of an <a>ATP</a>
@@ -1599,10 +1610,10 @@
                 </b>
               </li>
             </ul>
-			ATP Equivalent and Authority credentials are not subject to this requirement.
+			ATP-Equivalent and Authority credentials are not subject to this requirement.
               </li>
 			</li>
-			<li><mark>On a monthly basis, the Issuer of an <a>ATP Equivalent</a> or <a>Authority</a>
+			<li><mark>On a monthly basis, the Issuer of an <a>ATP-Equivalent</a> or <a>Authority</a>
             [=Credential=] <b>SHALL</b> check the most recent version of lists and definitions of ATP-Equivalent Entities or DSCSA Authorities, respectively. In the event that the entity is no longer actively on the list or covered by the definition, the prescribed action is that the <strong>Credential Owner work to provide an alternate valid list entry within 30 days.</strong> ATP credentials are not subject to this requirement.</mark>
 			</li>
         </ul>
