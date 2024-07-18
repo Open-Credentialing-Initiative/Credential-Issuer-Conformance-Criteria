@@ -181,7 +181,7 @@
         <p>
           While gathering information about an organization's
           <a>DSCSA</a>
-          status (e.g. <a>ATP</a>, <a>ATP-Equivalent</a>, or <a>Authority</a>) is relatively simple, ensuring that a
+          status (e.g. <a>ATP</a>, <a>ATP-Equivalent</a>, or <a>DSCSA Authority</a>) is relatively simple, ensuring that a
           Stakeholder
           credential is being granted to the right entity, and not to an
           imposter, is more difficult. ATPs are subject to licensing at either the state or federal level, and the statuses of
@@ -1208,16 +1208,6 @@
           </p>
         </section>
 		
-        <section>
-          <h2>
-            	DSCSA Authority and ATP-Equivalent Representative’s Authority</mark>
-          </h2>
-          <p><i>Note that in this section "[=DSCSA Authority=]" refers to governmental organizations (e.g. FDA), while "authority" refers to a representative's entitlement to represent a given organization.</i><p>
-            In the case of an application for a DSCSA Authority or ATP-Equivalent credential, the <a>CSP</a>
-              <b>SHALL</b> ascertain the applying Representative’s authority to represent the organization in question. The Credential Issuer <b>SHALL</b> leverage public records to determine whether the applying Representative is either (1) the organization's highest-ranking official or (2) a member of the organization's governing board or committee (e.g. a Board of Pharmacy).</li></ul>
-			<p>If this condition is met, the applying Representative has passed the authority check. Note that these requirements only apply to CSPs issuing credentials; access to the Digital Wallet is defined by the Stakeholder organization (i.e. an Authority may wish to allow employees of a department to access wallet functionality).
-        </section>
-		
       </section>
     </section>
 
@@ -1353,11 +1343,11 @@
 		<section>
 		<h2>	Check 8: Authority & ATP-Equivalent Status Check</mark></h2>
 		<p><mark>For [=ATP-Equivalents=], the Credential Issuer <b>SHALL</b> determine whether the organization meets the definition of an ATP-Equivalent as defined in the <a href="https://dscsagovernance.org/blueprint/" target="_blank">PDG Foundational Blueprint for 2023 Interoperability Chapter 6: DSCSA Credentialing and User Authentication Functional Design</a> in the subsection "PDG-defined EDDS network, ATP-Equivalent and DSCSA Authority Parties:</mark><p>
-		<ul><li>An ATP-Equivalent is a ‘trading partner’ (as defined in 581(23)) with an established history of doing business as a trading partner that, often based on principles of intergovernmental immunity,</li>
-<ul><li>is not legally required to have a valid registration in accordance with section 510 of the FD&C Act, in the case of a manufacturer or repackager; and</li>
-<li>is not legally required to have a valid license under State law or section 583 of the FD&C Act, in accordance with section 582(a)(6) of the FD&C Act, in the case of a wholesale distributor; and</li>
-<li>is not legally required to have a valid license under State law or section 584(a)(1) of the FD&C Act, in the case of a third-party logistics provider; and </li>
-<li>is not legally required to have a valid license under State law in the case of a dispenser.</li></ul></ul>
+		<ul><li><mark>An ATP-Equivalent is a ‘trading partner’ (as defined in 581(23)) with an established history of doing business as a trading partner that, often based on principles of intergovernmental immunity,</li>
+<ul><li><mark>is not legally required to have a valid registration in accordance with section 510 of the FD&C Act, in the case of a manufacturer or repackager; and</li>
+<li><mark>is not legally required to have a valid license under State law or section 583 of the FD&C Act, in accordance with section 582(a)(6) of the FD&C Act, in the case of a wholesale distributor; and</li>
+<li><mark>is not legally required to have a valid license under State law or section 584(a)(1) of the FD&C Act, in the case of a third-party logistics provider; and </li>
+<li><mark>is not legally required to have a valid license under State law in the case of a dispenser.</mark></li></ul></ul>
 
 		
 		<p><mark>Note that as ATP-Equivalents are by definition not subject to standard DSCSA licensure requirements, the Organization Type in the ATP-Equivalent credential is specified by the ATP-Equivalent applicant based on the applicant's attestation</i> to the Credential Issuer.</p>
@@ -1576,7 +1566,7 @@
             [=Credential=] Issuer <b>SHALL</b> check for a valid Identity Credential.
             The absence of a valid, unexpired, unrevoked Identity Credential
             <b>SHOULD</b> trigger a review for possible revocation of the
-            <a>ATP</a>
+            <a>Stakeholder</a>
             [=Credential=].
           </li>
           <li>
@@ -1613,8 +1603,8 @@
 			ATP-Equivalent and Authority credentials are not subject to this requirement.
               </li>
 			</li>
-			<li><mark>On a monthly basis, the Issuer of an <a>ATP-Equivalent</a> or <a>Authority</a>
-            [=Credential=] <b>SHALL</b> check the most recent version of lists and definitions of ATP-Equivalent Entities or DSCSA Authorities, respectively. In the event that the entity is no longer actively on the list or covered by the definition, the prescribed action is that the <strong>Credential Owner work to provide an alternate valid list entry within 30 days.</strong> ATP credentials are not subject to this requirement.</mark>
+			<li><mark>On a yearly basis, the Issuer of an <a>ATP-Equivalent</a> or <a>DSCSA Authority</a>
+            [=Credential=] <b>SHALL</b> check the most recent version of definitions of ATP-Equivalent Entities or DSCSA Authorities, respectively. In the event that the entity is no longer or covered by the definition, the prescribed action is that the <strong>Credential Owner work to provide an alternate valid list entry within 30 days.</strong> ATP credentials are not subject to this requirement.</mark>
 			</li>
         </ul>
       </section>
